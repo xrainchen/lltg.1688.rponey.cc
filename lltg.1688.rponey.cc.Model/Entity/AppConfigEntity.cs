@@ -1,0 +1,15 @@
+﻿namespace lltg._1688.rponey.cc.Model.Entity
+{
+    public class AppConfigEntity : IIdentityEntity
+    {
+        public long Id { get; set; }
+
+        public string AppSecrect { get; set; }
+
+        public string AppKey { get; set; }
+
+        public string AppName { get; set; }
+
+        public string AppHost { get; set; }
+    }
+}

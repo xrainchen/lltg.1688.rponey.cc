@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs
+/lltg.1688.rponey.cc/bin
+/lltg.1688.rponey.cc/obj/Debug
+/packages
+/Rponey.DbHelper/bin/Debug
+/Rponey.DbHelper/obj/Debug

@@ -43,11 +43,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\Lib.Framework\log4net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RPoney.Framework">
+      <HintPath>..\..\..\..\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="RPoney.Log">
+      <HintPath>..\..\..\..\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -94,6 +103,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Auth\Imp\UserCookieTickStorage.cs" />
+    <Compile Include="Auth\ITicketStorage.cs" />
+    <Compile Include="Auth\TicketStorageFactory.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OAuthController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -104,6 +119,9 @@
     <Content Include="packages.config" />
     <Content Include="Config\log4net.config" />
     <Content Include="Config\RPoneyRedisLog.config" />
+    <Content Include="Views\Shared\_Error.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_NoPower.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,8 +131,22 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\OAuth\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lltg.1688.rponey.cc.Bll\lltg.1688.rponey.cc.Bll.csproj">
+      <Project>{114be206-408f-4fc0-937f-de5364644089}</Project>
+      <Name>lltg.1688.rponey.cc.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lltg.1688.rponey.cc.Model\lltg.1688.rponey.cc.Model.csproj">
+      <Project>{245022c4-5643-4f79-8a63-393aa5829d66}</Project>
+      <Name>lltg.1688.rponey.cc.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rponey.AlbbSDK\Rponey.AlbbSDK.csproj">
+      <Project>{415a1a85-376d-4920-b481-1fefd219480b}</Project>
+      <Name>Rponey.AlbbSDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

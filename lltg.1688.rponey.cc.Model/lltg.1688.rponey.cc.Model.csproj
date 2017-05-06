@@ -42,14 +42,15 @@
   <ItemGroup>
     <Compile Include="Entity\AppConfigEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\ProductUserEntity.cs" />
+    <Compile Include="Entity\T_ProductUserTokenEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
     <Compile Include="Search\SearchParameter.cs" />
+    <Compile Include="ViewModel\ProductUserViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

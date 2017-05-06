@@ -11,5 +11,7 @@
         public string AppName { get; set; }
 
         public string AppHost { get; set; }
+
+        public string AppRediretUrl { get; set; }
     }
 }

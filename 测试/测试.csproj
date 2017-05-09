@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{23DA10DE-BA64-4C8E-92DA-F12A4806B21A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{624F8BD2-2F0D-4265-8048-33B518719941}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>lltg._1688.rponey.cc.Dal</RootNamespace>
-    <AssemblyName>lltg.1688.rponey.cc.Dal</AssemblyName>
+    <RootNamespace>测试</RootNamespace>
+    <AssemblyName>测试</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,18 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net">
-      <HintPath>..\..\..\..\Lib.Framework\log4net\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="RPoney.Data">
-      <HintPath>..\..\..\..\Lib.Framework\RPoney.Data\RPoney.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="RPoney.Framework">
-      <HintPath>..\..\..\..\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="RPoney.Log">
-      <HintPath>..\..\..\..\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -52,20 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityDal.cs" />
-    <Compile Include="IEntityDal.cs" />
-    <Compile Include="ProductUserDal.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="T_ProductUserTokenDal.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lltg.1688.rponey.cc.Model\lltg.1688.rponey.cc.Model.csproj">
-      <Project>{245022C4-5643-4F79-8A63-393AA5829D66}</Project>
-      <Name>lltg.1688.rponey.cc.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rponey.DbHelper\Rponey.DbHelper.csproj">
-      <Project>{c3cb57e6-5498-4099-8ff6-c6691cce8d1e}</Project>
-      <Name>Rponey.DbHelper</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
+      <Project>{ef1a2ab2-839c-4c8d-8fb0-2358424bd8c5}</Project>
+      <Name>RPoney.Utilty</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

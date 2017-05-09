@@ -63,7 +63,7 @@ namespace lltg._1688.rponey.cc.Auth.Imp
             if (model == null) return;
             var cookieTime = DateTime.Now;
             var cookieExpiration = DateTime.Now.AddDays(1);
-            var ticket = new FormsAuthenticationTicket(1, model.AlbbMemberId, cookieTime, cookieExpiration, true, model.SerializeToJson());
+            var ticket = new FormsAuthenticationTicket(1, model.ResourceOwner, cookieTime, cookieExpiration, true, model.SerializeToJson());
             var hash = FormsAuthentication.Encrypt(ticket);
             var cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
             HttpContext.Current.Response.Cookies.Add(cookie1);

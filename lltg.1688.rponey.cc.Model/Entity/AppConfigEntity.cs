@@ -1,6 +1,6 @@
 ﻿namespace lltg._1688.rponey.cc.Model.Entity
 {
-    public class AppConfigEntity : IIdentityEntity
+    public class AppConfigEntity 
     {
         public long Id { get; set; }
 

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rponey.AlbbSDK", "Rponey.Al
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "第三方", "第三方", "{FCA3495B-54D6-483F-9175-E97AB1D2EF15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "测试", "测试\测试.csproj", "{624F8BD2-2F0D-4265-8048-33B518719941}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{415A1A85-376D-4920-B481-1FEFD219480B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415A1A85-376D-4920-B481-1FEFD219480B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415A1A85-376D-4920-B481-1FEFD219480B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624F8BD2-2F0D-4265-8048-33B518719941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624F8BD2-2F0D-4265-8048-33B518719941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624F8BD2-2F0D-4265-8048-33B518719941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624F8BD2-2F0D-4265-8048-33B518719941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

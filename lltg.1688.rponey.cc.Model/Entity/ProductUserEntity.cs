@@ -7,8 +7,8 @@ namespace lltg._1688.rponey.cc.Model.Entity
         public long Id { get; set; }
 
         /// <summary>
-        /// 阿里巴巴会员id
+        /// 登录用户ID
         /// </summary>
-        public string AlbbMemberId { get; set; }
+        public string ResourceOwner { get; set; }
     }
 }

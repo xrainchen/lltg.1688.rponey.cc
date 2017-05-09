@@ -16,9 +16,18 @@ namespace Rponey.AlbbSDK
         /// <returns></returns>
         public static GetTokenResultModel GetToken(string appkey, string appsecret, string redirectUrl, string code)
         {
-            var url = $@"https://gw.open.1688.com/openapi/http/1/system.oauth2/getToken/{appkey}
-?grant_type=authorization_code&need_refresh_token=true&client_id={appkey}&client_secret={appsecret}&redirect_uri={redirectUrl}&code={code}";
-            return Post.GetResult<GetTokenResultModel>(url);
+            var url = $@"https://gw.open.1688.com/openapi/http/1/system.oauth2/getToken/{appkey}";
+//?grant_type=authorization_code&need_refresh_token=true&client_id={appkey}&client_secret={appsecret}&redirect_uri={redirectUrl}&code={code}";
+            var dic = new Dictionary<string, string>
+            {
+                {"grant_type", "authorization_code"},
+                {"need_refresh_token", "true"},
+                {"client_id", appkey},
+                {"client_secret", appsecret},
+                {"redirect_uri", redirectUrl},
+                {"code", code}
+            };
+            return Post.PostGetJson<GetTokenResultModel>(url,null, dic);
         }
         /// <summary>
         /// refreshToken换取accessToken

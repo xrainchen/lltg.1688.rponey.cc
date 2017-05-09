@@ -12,7 +12,7 @@ namespace lltg._1688.rponey.cc.Model.Entity
         public string AliId { get; set; }
 
         /// <summary>
-        /// 登录id
+        /// 登录id--登录用名
         /// </summary>
         public string ResourceOwner { get; set; }
 

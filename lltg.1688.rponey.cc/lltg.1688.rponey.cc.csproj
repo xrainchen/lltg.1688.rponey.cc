@@ -113,6 +113,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -133,10 +134,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\OAuth\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
+      <Project>{EF1A2AB2-839C-4C8D-8FB0-2358424BD8C5}</Project>
+      <Name>RPoney.Utilty</Name>
+    </ProjectReference>
     <ProjectReference Include="..\lltg.1688.rponey.cc.Bll\lltg.1688.rponey.cc.Bll.csproj">
       <Project>{114be206-408f-4fc0-937f-de5364644089}</Project>
       <Name>lltg.1688.rponey.cc.Bll</Name>

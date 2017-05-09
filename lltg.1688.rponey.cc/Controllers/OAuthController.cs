@@ -22,6 +22,7 @@ namespace lltg._1688.rponey.cc.Controllers
         {
             try
             {
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"进入授权回调处理,code:{code}");
                 var config = new AppConfigBll().GetAppConfig(Request.Url.Host);
                 var getToken = ApiCommon.GetToken(config.AppKey, config.AppSecrect, config.AppRediretUrl, code);
                 if (null == getToken)
@@ -39,6 +40,8 @@ namespace lltg._1688.rponey.cc.Controllers
                     RefreshTokenTimeout = getToken.RefreshTokenTimeout.CDateTime(DateTime.MinValue),
                     UpdateTime = DateTime.Now
                 };
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"进入授权回调处理,productUserToken:{productUserToken.SerializeToJSON()}");
+                return Content(productUserToken.SerializeToJSON());
                 if (new T_ProductUserTokenBll().Save(productUserToken))
                 {
                     //todo:用户是否存在  存在更新 不存在新增 做登录处理 

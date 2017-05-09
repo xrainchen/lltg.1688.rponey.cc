@@ -14,5 +14,14 @@ namespace lltg._1688.rponey.cc
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            var ex = Server.GetLastError();
+            if (ex != null)
+            {
+                RPoney.Log.LoggerManager.Error(GetType().Name, "系统异常", ex);
+            }
+        }
     }
 }

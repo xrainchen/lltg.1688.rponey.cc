@@ -10,7 +10,7 @@ namespace lltg._1688.rponey.cc.Bll
         private readonly Lazy<T_ProductUserTokenDal> t_productUserDal = new Lazy<T_ProductUserTokenDal>();
         public bool Save(T_ProductUserTokenEntity model)
         {
-            return Save(model);
+            return t_productUserDal.Value.Save(model);
         }
     }
 }

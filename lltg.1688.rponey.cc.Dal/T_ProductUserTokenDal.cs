@@ -45,23 +45,9 @@ namespace lltg._1688.rponey.cc.Dal
             {
                 var sql = $@"
 if(Exists(select 1 from T_ProductUserToken(nolock) where ResourceOwner=@ResourceOwner))
-    begin 
-        insert into dbo.[T_ProductUserToken] (AliId,MemberId,ResourceOwner,AccessToken,RefreshToken,ExpiresIn,RefreshTokenTimeout,UpdateTime)
-        values(@AliId,@MemberId,@ResourceOwner,@AccessToken,@RefreshToken,@ExpiresIn,@RefreshTokenTimeout,@UpdateTime)
-    end;
+begin update T_ProductUserToken set AliId=@AliId,MemberId=@MemberId,AccessToken=@AccessToken,RefreshToken=@RefreshToken,ExpiresIn=@ExpiresIn,RefreshTokenTimeout=@RefreshTokenTimeout,UpdateTime=@UpdateTime where ResourceOwner=@ResourceOwner end
 else
-    begin 
-        update T_ProductUserToken set
-            AliId=@AliId,
-            MemberId=@MemberId,
-            AccessToken=@AccessToken,
-            RefreshToken=@RefreshToken,
-            ExpiresIn=@ExpiresIn,
-            RefreshTokenTimeout=@RefreshTokenTimeout,
-            UpdateTime=@UpdateTime
-        where ResourceOwner=@ResourceOwner
-    end;
-";
+begin insert into T_ProductUserToken(AliId,MemberId,ResourceOwner,AccessToken,RefreshToken,ExpiresIn,RefreshTokenTimeout,UpdateTime) values(@AliId,@MemberId,@ResourceOwner,@AccessToken,@RefreshToken,@ExpiresIn,@RefreshTokenTimeout,@UpdateTime) end";
                 var para = new List<SqlParameter>
             {
                 new SqlParameter("@AliId", model.AliId),
@@ -73,7 +59,7 @@ else
                 new SqlParameter("@UpdateTime", model.UpdateTime),
                 new SqlParameter("@ResourceOwner", model.ResourceOwner)
             };
-                RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}sql:{sql}");
+                RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}sql:{sql}{Environment.NewLine}参数:{model.SerializeToJSON()}");
                 return Rponey.DbHelper.DataBaseManager.MainDb().ExecuteNonQuery(sql, para.ToArray()) > 0;
             }
             catch (Exception ex)

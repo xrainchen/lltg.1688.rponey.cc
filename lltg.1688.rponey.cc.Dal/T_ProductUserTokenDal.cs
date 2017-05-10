@@ -38,6 +38,25 @@ namespace lltg._1688.rponey.cc.Dal
             throw new NotImplementedException();
         }
 
+        public T_ProductUserTokenEntity GetByResourceOwner(string resourceOwner)
+        {
+            var description = "获取用户token";
+            try
+            {
+                var sql = $"select top 1 * from T_ProductUserToken(nolock) where ResourceOwner=@ResourceOwner";
+                var para = new List<SqlParameter>{
+                new SqlParameter("@ResourceOwner", resourceOwner)
+            };
+                RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}sql:{sql}{Environment.NewLine}参数:{resourceOwner}");
+                return RPoney.Data.ModelConvertHelper<T_ProductUserTokenEntity>.ToModel(Rponey.DbHelper.DataBaseManager.MainDb().ExecuteFillDataTable(sql, para.ToArray()));
+            }
+            catch (Exception ex)
+            {
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常", ex);
+                return null;
+            }
+        }
+
         public bool Save(T_ProductUserTokenEntity model)
         {
             var description = "保存用户令牌";
@@ -48,8 +67,7 @@ if(Exists(select 1 from T_ProductUserToken(nolock) where ResourceOwner=@Resource
 begin update T_ProductUserToken set AliId=@AliId,MemberId=@MemberId,AccessToken=@AccessToken,RefreshToken=@RefreshToken,ExpiresIn=@ExpiresIn,RefreshTokenTimeout=@RefreshTokenTimeout,UpdateTime=@UpdateTime where ResourceOwner=@ResourceOwner end
 else
 begin insert into T_ProductUserToken(AliId,MemberId,ResourceOwner,AccessToken,RefreshToken,ExpiresIn,RefreshTokenTimeout,UpdateTime) values(@AliId,@MemberId,@ResourceOwner,@AccessToken,@RefreshToken,@ExpiresIn,@RefreshTokenTimeout,@UpdateTime) end";
-                var para = new List<SqlParameter>
-            {
+                var para = new List<SqlParameter>{
                 new SqlParameter("@AliId", model.AliId),
                 new SqlParameter("@AccessToken", model.AccessToken),
                 new SqlParameter("@MemberId", model.MemberId),

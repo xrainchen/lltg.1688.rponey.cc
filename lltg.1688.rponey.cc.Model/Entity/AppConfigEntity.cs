@@ -13,5 +13,7 @@
         public string AppHost { get; set; }
 
         public string AppRediretUrl { get; set; }
+
+        public string Company { get; set; }
     }
 }

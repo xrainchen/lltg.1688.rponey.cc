@@ -44,7 +44,6 @@ namespace lltg._1688.rponey.cc.Controllers
                 RPoney.Log.LoggerManager.Debug(GetType().Name, $"进入授权回调处理,productUserToken:{productUserToken.SerializeToJSON()}");
                 if (new T_ProductUserTokenBll().Save(productUserToken))
                 {
-                    //todo:用户是否存在  存在更新 不存在新增 做登录处理 
                     var productUserBll = new ProductUserBll();
                     var user = productUserBll.GetProductUser(getToken.ResourceOwner);
                     if (null == user)

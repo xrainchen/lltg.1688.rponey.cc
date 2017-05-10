@@ -11,7 +11,8 @@ namespace lltg._1688.rponey.cc.Bll
             AppKey = "3518486",
             AppSecrect = "0K024PEUxUI",
             AppName = "站外精准流量推广",
-            AppRediretUrl = "http://lltg.1688.rponey.cc/F5/Index"
+            AppRediretUrl = "http://lltg.1688.vvzs168.com/Home/Index",
+            Company = "福州一七互动网络科技有限公司"
         };
     }
 

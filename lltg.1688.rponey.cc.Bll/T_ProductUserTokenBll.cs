@@ -12,5 +12,10 @@ namespace lltg._1688.rponey.cc.Bll
         {
             return t_productUserDal.Value.Save(model);
         }
+
+        public T_ProductUserTokenEntity GetByResourceOwner(string resourceOwner)
+        {
+            return t_productUserDal.Value.GetByResourceOwner(resourceOwner);
+        }
     }
 }

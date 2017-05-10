@@ -40,17 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\AdPlaceConfigEntity.cs" />
+    <Compile Include="Entity\AdPlaceLogEntity.cs" />
     <Compile Include="Entity\AppConfigEntity.cs" />
+    <Compile Include="Entity\GoodsEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\ProductUserBuyDetailEntity.cs" />
     <Compile Include="Entity\ProductUserEntity.cs" />
     <Compile Include="Entity\T_ProductUserTokenEntity.cs" />
+    <Compile Include="Entity\YinLiuTagEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
     <Compile Include="Search\SearchParameter.cs" />
     <Compile Include="ViewModel\ProductUserViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
+      <Project>{ef1a2ab2-839c-4c8d-8fb0-2358424bd8c5}</Project>
+      <Name>RPoney.Utilty</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

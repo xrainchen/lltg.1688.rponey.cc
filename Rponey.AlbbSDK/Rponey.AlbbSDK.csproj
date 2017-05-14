@@ -46,18 +46,37 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiCommon.cs" />
+    <Compile Include="ApiFacade.cs" />
+    <Compile Include="ApiProduct.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Http\Get.cs" />
     <Compile Include="Http\Post.cs" />
     <Compile Include="Http\RequestHelper.cs" />
     <Compile Include="Model\ApiCommon\GetTokenResultModel.cs" />
+    <Compile Include="Model\ApiProduct\GetProductListResultModel.cs" />
+    <Compile Include="Model\ApiProduct\GetProductResultModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductAttributeModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductExtendInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductImageInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductInternationalTradeInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductPriceRangeModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductSaleInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductShippingInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\ProductSkuInfoModel.cs" />
+    <Compile Include="Model\ApiProduct\SKUAttrInfoModel.cs" />
     <Compile Include="Model\ReturnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilty\FileHelper.cs" />
     <Compile Include="Utilty\SignHelper.cs" />
     <Compile Include="Utilty\StringHelper.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
+      <Project>{EF1A2AB2-839C-4C8D-8FB0-2358424BD8C5}</Project>
+      <Name>RPoney.Utilty</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

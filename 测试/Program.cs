@@ -8,7 +8,7 @@ namespace 测试
         static void Main(string[] args)
         {
             var time = "20171105210318000+0800";
-            Console.WriteLine(DateTimeExtend.GetDateTimeFromUtc(time));
+            Console.WriteLine(time.GetDateTimeFromUtc(DateTime.MinValue));
             Console.WriteLine(DateTime.Today.ToLocalTimeStamp());
             Console.WriteLine(DateTimeExtend.GetDateTimeFromTimeStamp(1494339852));
             Console.Read();

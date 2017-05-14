@@ -31,5 +31,23 @@ namespace Rponey.AlbbSDK.Utilty
             //TO HEX
             return BitConverter.ToString(hash).Replace("-", string.Empty).ToUpper();
         }
+
+        public static string Sign(string urlPath,Dictionary<string, string> paramDic, string appSecret)
+        {
+            var signatureKey = Encoding.UTF8.GetBytes(appSecret);
+            //第一步：拼装key+value
+            var list = paramDic.Select(kv => kv.Key + kv.Value).ToList();
+            //第二步：排序
+            list.Sort();
+            //第三步：拼装排序后的各个字符串
+            var tmp = list.Aggregate(urlPath, (current, kvstr) => current + kvstr);
+            //第四步：将拼装后的字符串和app密钥一起计算签名
+            //HMAC-SHA1
+            var hmacsha1 = new HMACSHA1(signatureKey);
+            hmacsha1.ComputeHash(Encoding.UTF8.GetBytes(tmp));
+            var hash = hmacsha1.Hash;
+            //TO HEX
+            return BitConverter.ToString(hash).Replace("-", string.Empty).ToUpper();
+        }
     }
 }

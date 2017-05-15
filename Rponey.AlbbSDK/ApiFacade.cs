@@ -29,11 +29,11 @@ namespace Rponey.AlbbSDK
             var urlPath = $"{Protocol}/{apiVersion}/{apiNamespace}/{apiName}/{appKey}";
             var url = $"http://{OpenHost}/openapi/{urlPath}";
             var dic = param ?? new Dictionary<string, string>();
-            dic.Add("memberId", memberId);
             var sign = SignHelper.Sign(urlPath, dic, appSecret);
             dic.Add("_aop_timestamp", DateTime.Now.ToLocalMilliTimeStamp().ToString());
             dic.Add("access_token", accesstoken);
             dic.Add("_aop_signature", sign);
+            RPoney.Log.LoggerManager.Debug(typeof(ApiFacade).Name, $"调用阿里API请求:{dic.SerializeToJson()}");
             return Post.PostGetJson<T>(url, null, dic);
         }
     }

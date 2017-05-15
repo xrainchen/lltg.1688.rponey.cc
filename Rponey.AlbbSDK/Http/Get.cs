@@ -26,15 +26,7 @@ namespace Rponey.AlbbSDK.Http
         public static T GetJson<T>(string url, Encoding encoding = null, int? maxJsonLength = null)
         {
             var returnText = RequestHelper.HttpGet(url, encoding);
-            try
-            {
-                return returnText.DeserializeFromJson<T>();
-            }
-            catch (Exception ex)
-            {
-                return default(T);
-            }
-
+            return returnText.DeserializeFromJson<T>();
         }
 
         /// <summary>
@@ -92,14 +84,7 @@ namespace Rponey.AlbbSDK.Http
         public static async Task<T> GetJsonAsync<T>(string url, Encoding encoding = null, int? maxJsonLength = null)
         {
             string returnText = await RequestHelper.HttpGetAsync(url, encoding);
-            try
-            {
-                return returnText.DeserializeFromJson<T>();
-            }
-            catch (Exception ex)
-            {
-                return default(T);
-            }
+            return returnText.DeserializeFromJson<T>();
         }
 
         /// <summary>

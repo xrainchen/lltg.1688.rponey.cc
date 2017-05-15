@@ -22,15 +22,7 @@ namespace Rponey.AlbbSDK.Http
         /// <returns></returns>
         public static T GetResult<T>(string returnText)
         {
-            try
-            {
-                return returnText.DeserializeFromJson<T>();
-            }
-            catch (Exception ex)
-            {
-                return default(T);
-            }
-
+            return returnText.DeserializeFromJson<T>();
         }
 
 
@@ -74,14 +66,7 @@ namespace Rponey.AlbbSDK.Http
         public static T PostGetJson<T>(string url, CookieContainer cookieContainer = null, Stream fileStream = null, Encoding encoding = null, X509Certificate2 cer = null, int timeOut = Config.Http_Time_Out, bool checkValidationResult = false)
         {
             var returnText = RequestHelper.HttpPost(url, cookieContainer, fileStream, null, null, encoding, cer, timeOut, checkValidationResult);
-            try
-            {
-                return returnText.DeserializeFromJson<T>();
-            }
-            catch (Exception ex)
-            {
-                return default(T);
-            }
+            return returnText.DeserializeFromJson<T>();
         }
 
         /// <summary>
@@ -159,14 +144,7 @@ namespace Rponey.AlbbSDK.Http
         public static async Task<T> PostGetJsonAsync<T>(string url, CookieContainer cookieContainer = null, Stream fileStream = null, Encoding encoding = null, X509Certificate2 cer = null, int timeOut = Config.Http_Time_Out, bool checkValidationResult = false)
         {
             var returnText = await RequestHelper.HttpPostAsync(url, cookieContainer, fileStream, null, null, encoding, cer, timeOut, checkValidationResult);
-            try
-            {
-                return returnText.DeserializeFromJson<T>();
-            }
-            catch (Exception ex)
-            {
-                return default(T);
-            }
+            return returnText.DeserializeFromJson<T>();
         }
 
 

@@ -45,18 +45,20 @@ namespace lltg._1688.rponey.cc.Controllers
             var result = _productUserTokenBll.Value.GetByResourceOwner(CurrentUser.ResourceOwner);
             if (null == result)
                 throw new Exception($"用户{CurrentUser.ResourceOwner}令牌信息不存在");
-            if (result.UpdateTime.AddSeconds(result.ExpiresIn) < DateTime.Now.AddSeconds(-120))
+            if (result.UpdateTime.AddSeconds(result.ExpiresIn) > DateTime.Now.AddSeconds(-120))
             {
                 return result;
             }
             //更新令牌
             GetTokenResultModel getToken = null;
-            if (result.RefreshTokenTimeout < DateTime.Now.AddDays(-30))
+            if (result.RefreshTokenTimeout.AddDays(-30) < DateTime.Now)
             {
+                RPoney.Log.LoggerManager.Debug(GetType().Name, "更新刷新令牌");
                 getToken = ApiCommon.GetToken(AppConfigBll.AppConfig.AppKey, AppConfigBll.AppConfig.AppSecrect, result.RefreshToken, result.AccessToken);
             }
             else
             {
+                RPoney.Log.LoggerManager.Debug(GetType().Name, "使用刷新令牌换取accesstoken");
                 getToken = ApiCommon.GetTokenByRefreshToKen(AppConfigBll.AppConfig.AppKey, AppConfigBll.AppConfig.AppSecrect, result.RefreshToken);
             }
             var productUserToken = new T_ProductUserTokenEntity

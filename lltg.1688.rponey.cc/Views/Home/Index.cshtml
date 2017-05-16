@@ -12,6 +12,7 @@
     <div>
         当前用户：@Model.User.ResourceOwner
         <a href="javascript:;" onclick="ProductList()">查看产品</a>
+        <a href="javascript:;" onclick="CategoryList()">查看类目</a>
     </div>
     <script src="@Url.Content("~/Script/jquery.min.js")"></script>
     <script>
@@ -20,6 +21,15 @@
                 url: '@Url.Action("ProductList")',
                 type: 'POST',
                 success:function(result) {
+                    console.log(result);
+                }
+            });
+        }
+        function CategoryList() {
+            $.ajax({
+                url: '@Url.Action("CategoryList")',
+                type: 'POST',
+                success: function (result) {
                     console.log(result);
                 }
             });

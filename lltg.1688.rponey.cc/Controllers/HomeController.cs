@@ -24,13 +24,31 @@ namespace lltg._1688.rponey.cc.Controllers
                 var productList = ApiProduct.GetList(token.AccessToken,
                     AppConfigBll.AppConfig.AppKey,
                     AppConfigBll.AppConfig.AppSecrect,
-                    token.MemberId,
                     null,
                     1,
                     20,
                     null,
                     null);
                 return Json(productList);
+            }
+            catch (Exception ex)
+            {
+                RPoney.Log.LoggerManager.Error(GetType().Name, "", ex);
+                return new EmptyResult();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult CategoryList()
+        {
+            try
+            {
+                var token = GetProductUserToken();
+                var categoryList = ApiCategory.GetList(token.AccessToken,
+                    AppConfigBll.AppConfig.AppKey,
+                    AppConfigBll.AppConfig.AppSecrect,
+                    0);
+                return Json(categoryList);
             }
             catch (Exception ex)
             {

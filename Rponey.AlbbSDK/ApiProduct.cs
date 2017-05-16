@@ -8,7 +8,6 @@ namespace Rponey.AlbbSDK
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="memberId"></param>
         /// <param name="categoryId">类目ID，国际站传入-1，返回所有商品列表</param>
         /// <param name="pageNo">页码。取值范围:大于零的整数;默认值为1，即返回第一页数据。</param>
         /// <param name="pageSize">返回列表结果集每页条数。取值范围:大于零的整数;最大值：30;</param>
@@ -19,13 +18,13 @@ namespace Rponey.AlbbSDK
         /// <param name="appKey"></param>
         /// <param name="appSecret"></param>
         /// <returns></returns>
-        public static GetProductListResultModel GetList(string accesstoken, string appKey, string appSecret, string memberId, long? categoryId, int pageNo, int pageSize, string timeStamp, string endTimeStamp, string webSite = "1688")
+        public static GetProductListResultModel GetList(string accesstoken, string appKey, string appSecret, long? categoryId, int pageNo, int pageSize, string timeStamp, string endTimeStamp, string webSite = "1688")
         {
-            var dic = new Dictionary<string, string>();
+            var dic = new Dictionary<string, object>();
             if (categoryId.HasValue)
-                dic.Add("categoryId", categoryId.ToString());
-            dic.Add("pageNo", pageNo.ToString());
-            dic.Add("pageSize", pageSize.ToString());
+                dic.Add("categoryId", categoryId);
+            dic.Add("pageNo", pageNo);
+            dic.Add("pageSize", pageSize);
             if (!string.IsNullOrWhiteSpace(timeStamp))
             {
                 dic.Add("timeStamp", timeStamp);
@@ -35,7 +34,7 @@ namespace Rponey.AlbbSDK
                 dic.Add("endTimeStamp", endTimeStamp);
             }
             dic.Add("webSite", webSite);
-            return ApiFacade.GetPostResult<GetProductListResultModel>(accesstoken, appKey, appSecret, memberId, dic, "com.alibaba.product", "alibaba.product.getList");
+            return ApiFacade.GetPostResult<GetProductListResultModel>(accesstoken, appKey, appSecret, dic, "com.alibaba.product", "alibaba.product.getList");
         }
     }
 }

@@ -51,6 +51,15 @@ namespace Rponey.AlbbSDK.Http
             }
         }
 
+        public static  T PostGetJson<T>(string url, Dictionary<string, object> dataDic,
+            CookieContainer cookieContainer = null, string refererUrl = null, Encoding encoding = null,
+            X509Certificate2 cer = null, int timeOut = Config.Http_Time_Out, bool checkValidationResult = false)
+        {
+            var returnText = RequestHelper.HttpPost(url, dataDic, cookieContainer, refererUrl, encoding, cer, timeOut, checkValidationResult);
+            var result = GetResult<T>(returnText);
+            return result;
+        }
+
         /// <summary>
         /// 发起Post请求
         /// </summary>

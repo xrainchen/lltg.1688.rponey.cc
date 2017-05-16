@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiCategory.cs" />
     <Compile Include="ApiCommon.cs" />
     <Compile Include="ApiFacade.cs" />
     <Compile Include="ApiProduct.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="Model\ApiProduct\ProductShippingInfoModel.cs" />
     <Compile Include="Model\ApiProduct\ProductSkuInfoModel.cs" />
     <Compile Include="Model\ApiProduct\SKUAttrInfoModel.cs" />
+    <Compile Include="Model\Category\CategoryInfoModel.cs" />
+    <Compile Include="Model\GetCategoryListResultModel.cs" />
     <Compile Include="Model\ReturnModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilty\FileHelper.cs" />

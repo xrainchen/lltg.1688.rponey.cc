@@ -61,7 +61,7 @@ namespace Rponey.AlbbSDK.Http
         {
             var wc = new WebClient();
             wc.Proxy = _webproxy;
-            wc.Encoding = encoding?? Encoding.UTF8;
+            wc.Encoding = encoding ?? Encoding.UTF8;
             return wc.DownloadString(url);
         }
 
@@ -553,7 +553,28 @@ namespace Rponey.AlbbSDK.Http
 
             return sb.ToString();
         }
+        public static string GetQueryString(this Dictionary<string, object> formData)
+        {
+            if (formData == null || formData.Count == 0)
+            {
+                return "";
+            }
 
+            StringBuilder sb = new StringBuilder();
+
+            var i = 0;
+            foreach (var kv in formData)
+            {
+                i++;
+                sb.AppendFormat("{0}={1}", kv.Key, kv.Value);
+                if (i < formData.Count)
+                {
+                    sb.Append("&");
+                }
+            }
+
+            return sb.ToString();
+        }
         /// <summary>
         /// 填充表单信息的Stream
         /// </summary>
@@ -618,6 +639,84 @@ namespace Rponey.AlbbSDK.Http
                 return null;
             }
             return Uri.EscapeDataString(data);
+        }
+
+
+        public static string HttpPost(string url, Dictionary<string, object> dataDic, CookieContainer cookieContainer = null, string refererUrl = null, Encoding encoding = null, X509Certificate2 cer = null, int timeOut = Config.Http_Time_Out, bool checkValidationResult = false)
+        {
+            using (var stream = new MemoryStream())
+            {
+                string dataString = GetQueryString(dataDic);
+                var formDataBytes = dataDic == null ? new byte[0] : Encoding.UTF8.GetBytes(dataString);
+                stream.Write(formDataBytes, 0, formDataBytes.Length);
+                stream.Seek(0, SeekOrigin.Begin);
+                return HttpPost(url, cookieContainer, stream, refererUrl, encoding, cer, timeOut, checkValidationResult);
+            }
+
+        }
+        public static string HttpPost(string url, CookieContainer cookieContainer = null, Stream postStream = null, string refererUrl = null, Encoding encoding = null, X509Certificate2 cer = null, int timeOut = Config.Http_Time_Out, bool checkValidationResult = false)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.Timeout = timeOut;
+            request.Proxy = _webproxy;
+            if (cer != null)
+            {
+                request.ClientCertificates.Add(cer);
+            }
+            if (checkValidationResult)
+            {
+                ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
+            }
+            request.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+            request.ContentLength = postStream != null ? postStream.Length : 0;
+            request.Accept = "application/json, text/javascript, */*; q=0.01";
+            request.KeepAlive = true;
+
+            if (!string.IsNullOrEmpty(refererUrl))
+            {
+                request.Referer = refererUrl;
+            }
+            request.UserAgent = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727)";
+
+            if (cookieContainer != null)
+            {
+                request.CookieContainer = cookieContainer;
+            }
+
+            #region 输入二进制流
+            if (postStream != null)
+            {
+                postStream.Position = 0;
+
+                //直接写入流
+                Stream requestStream = request.GetRequestStream();
+
+                byte[] buffer = new byte[1024];
+                int bytesRead = 0;
+                while ((bytesRead = postStream.Read(buffer, 0, buffer.Length)) != 0)
+                {
+                    requestStream.Write(buffer, 0, bytesRead);
+                }
+                postStream.Close();//关闭文件访问
+            }
+            #endregion
+
+            HttpWebResponse response = (HttpWebResponse)(request.GetResponse());
+
+            if (cookieContainer != null)
+            {
+                response.Cookies = cookieContainer.GetCookies(response.ResponseUri);
+            }
+
+            using (Stream responseStream = response.GetResponseStream())
+            {
+                using (StreamReader myStreamReader = new StreamReader(responseStream, encoding ?? Encoding.GetEncoding("utf-8")))
+                {
+                    string retString = myStreamReader.ReadToEnd();
+                    return retString;
+                }
+            }
         }
     }
 }

@@ -18,23 +18,22 @@ namespace Rponey.AlbbSDK
         /// <param name="accesstoken"></param>
         /// <param name="appKey"></param>
         /// <param name="appSecret"></param>
-        /// <param name="memberId"></param>
         /// <param name="param"></param>
         /// <param name="apiNamespace"></param>
         /// <param name="apiName"></param>
         /// <param name="apiVersion"></param>
         /// <returns></returns>
-        public static T GetPostResult<T>(string accesstoken, string appKey, string appSecret, string memberId, Dictionary<string, string> param, string apiNamespace, string apiName, string apiVersion = "1")
+        public static T GetPostResult<T>(string accesstoken, string appKey, string appSecret, Dictionary<string, object> param, string apiNamespace, string apiName, string apiVersion = "1")
         {
             var urlPath = $"{Protocol}/{apiVersion}/{apiNamespace}/{apiName}/{appKey}";
             var url = $"http://{OpenHost}/openapi/{urlPath}";
-            var dic = param ?? new Dictionary<string, string>();
+            var dic = param ?? new Dictionary<string, object>();
             var sign = SignHelper.Sign(urlPath, dic, appSecret);
-            dic.Add("_aop_timestamp", DateTime.Now.ToLocalMilliTimeStamp().ToString());
-            dic.Add("access_token", accesstoken);
-            dic.Add("_aop_signature", sign);
+            //dic.Add("_aop_timestamp", DateTime.Now.ToLocalMilliTimeStamp().ToString());
+            //dic.Add("access_token", accesstoken);
+            //dic.Add("_aop_signature", sign);
             RPoney.Log.LoggerManager.Debug(typeof(ApiFacade).Name, $"调用阿里API请求:{dic.SerializeToJson()}");
-            return Post.PostGetJson<T>(url, null, dic);
+            return Post.PostGetJson<T>(url,dic);
         }
     }
 }

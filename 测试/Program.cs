@@ -1,5 +1,5 @@
 ﻿using System;
-using RPoney.Utilty.Extend;
+using Rponey.AlbbSDK;
 
 namespace 测试
 {
@@ -7,10 +7,10 @@ namespace 测试
     {
         static void Main(string[] args)
         {
-            var time = "20171105210318000+0800";
-            Console.WriteLine(time.GetDateTimeFromUtc(DateTime.MinValue));
-            Console.WriteLine(DateTime.Today.ToLocalTimeStamp());
-            Console.WriteLine(DateTimeExtend.GetDateTimeFromTimeStamp(1494339852));
+            var result = ApiCategory.GetList("4c9a7827-8028-4236-a798-e5ac155bc070",
+                 "3518486",
+                 "0K024PEUxUI",
+                 0);
             Console.Read();
         }
     }

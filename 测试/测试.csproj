@@ -53,6 +53,10 @@
       <Project>{ef1a2ab2-839c-4c8d-8fb0-2358424bd8c5}</Project>
       <Name>RPoney.Utilty</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rponey.AlbbSDK\Rponey.AlbbSDK.csproj">
+      <Project>{415a1a85-376d-4920-b481-1fefd219480b}</Project>
+      <Name>Rponey.AlbbSDK</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

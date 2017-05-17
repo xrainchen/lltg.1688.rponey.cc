@@ -20,11 +20,11 @@ namespace Rponey.AlbbSDK
         /// <returns></returns>
         public static GetProductListResultModel GetList(string accesstoken, string appKey, string appSecret, long? categoryId, int pageNo, int pageSize, string timeStamp, string endTimeStamp, string webSite = "1688")
         {
-            var dic = new Dictionary<string, object>();
+            var dic = new Dictionary<string, string>();
             if (categoryId.HasValue)
-                dic.Add("categoryId", categoryId);
-            dic.Add("pageNo", pageNo);
-            dic.Add("pageSize", pageSize);
+                dic.Add("categoryId", categoryId.ToString());
+            dic.Add("pageNo", pageNo.ToString());
+            dic.Add("pageSize", pageSize.ToString());
             if (!string.IsNullOrWhiteSpace(timeStamp))
             {
                 dic.Add("timeStamp", timeStamp);
@@ -34,7 +34,8 @@ namespace Rponey.AlbbSDK
                 dic.Add("endTimeStamp", endTimeStamp);
             }
             dic.Add("webSite", webSite);
-            return ApiFacade.GetPostResult<GetProductListResultModel>(accesstoken, appKey, appSecret, dic, "com.alibaba.product", "alibaba.product.getList");
+            return ApiFacade.GetPostResult<GetProductListResultModel>(accesstoken, appKey, appSecret, dic,
+                "com.alibaba.product", "alibaba.product.getList",true, true, true);
         }
     }
 }

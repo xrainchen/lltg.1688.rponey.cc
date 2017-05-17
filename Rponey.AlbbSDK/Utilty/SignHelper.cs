@@ -32,7 +32,7 @@ namespace Rponey.AlbbSDK.Utilty
             return BitConverter.ToString(hash).Replace("-", string.Empty).ToUpper();
         }
 
-        public static string Sign(string urlPath,Dictionary<string, object> paramDic, string appSecret)
+        public static string Sign(string urlPath,Dictionary<string, string> paramDic, string appSecret)
         {
             var signatureKey = Encoding.UTF8.GetBytes(appSecret);
             //第一步：拼装key+value

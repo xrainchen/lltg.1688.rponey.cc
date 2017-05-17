@@ -35,7 +35,7 @@ namespace Rponey.AlbbSDK
             }
             dic.Add("webSite", webSite);
             return ApiFacade.GetPostResult<GetProductListResultModel>(accesstoken, appKey, appSecret, dic,
-                "com.alibaba.product", "alibaba.product.getList",true, true, true);
+                "com.alibaba.product", "alibaba.product.getList",false, true, true);
         }
     }
 }

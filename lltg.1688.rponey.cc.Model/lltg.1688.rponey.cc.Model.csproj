@@ -53,7 +53,9 @@
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
     <Compile Include="Search\SearchParameter.cs" />
+    <Compile Include="Search\YinLiuTagSerachParameter.cs" />
     <Compile Include="ViewModel\ProductUserViewModel.cs" />
+    <Compile Include="ViewModel\YinLiuTagViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">

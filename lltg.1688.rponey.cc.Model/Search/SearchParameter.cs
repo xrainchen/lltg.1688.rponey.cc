@@ -12,14 +12,25 @@ namespace lltg._1688.rponey.cc.Model.Search
         /// </summary>
         public bool IsAll { get; set; }
         #region 分页
+        private int _page { get; set; }
         /// <summary>
         /// 页码
         /// </summary>
-        public int Page { get; set; }
+        public int Page
+        {
+            get { return _page > 0 ? _page : 1; }
+            set { _page = value; }
+        }
+
+        private int _pageSize { get; set; }
         /// <summary>
         /// 数量
         /// </summary>
-        public int PageSize { get; set; }
+        public int PageSize
+        {
+            get { return _pageSize > 0 ? _pageSize : 20; }
+            set { _pageSize = value; }
+        }
         /// <summary>
         /// 总数
         /// </summary>

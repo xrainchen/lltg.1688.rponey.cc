@@ -4,35 +4,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    <meta name="keywords" content="@ViewBag.Keywords">
-    <meta name="description" content="@ViewBag.Description">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link href="@Url.Content("~/Content/HplusCSS/bootstrap.min.css?v=3.3.6")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/HplusCSS/plugins/bootstrap-table/bootstrap-table.min.css")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/HplusCSS/font-awesome.min.css?v=4.4.0")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/HplusCSS/animate.min.css")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/HplusCSS/style.css?v=4.1.0")" rel="stylesheet">
-    <link href="@Url.Content("~/Content/HplusCSS/plugins/sweetalert/sweetalert.css")" rel="stylesheet">
+    <link rel="shortcut icon" href="@Url.Content("~/favicon.ico")">
+    <link href="@Url.Content("~/css/bootstrap.min14ed.css?v=3.3.6")" rel="stylesheet">
+    <link href="@Url.Content("~/css/font-awesome.min93e3.css?v=4.4.0")" rel="stylesheet">
+    <link href="@Url.Content("~/css/plugins/bootstrap-table/bootstrap-table.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/css/animate.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/css/style.min862f.css?v=4.1.0")" rel="stylesheet">
+    <link href="@Url.Content("~/js/plugins/layer-v3.0.3/layer/skin/default/layer.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/plugins/toastr/toastr.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/plugins/sweetalert/sweetalert.css")" rel="stylesheet" />
     @RenderSection("head", false)
-    
 </head>
 <body class="gray-bg">
     @RenderBody()
-    <script src="@Url.Content("~/Scripts/jquery.min.js?v=2.1.4")"></script>
-    <script src="@Url.Content("~/Scripts/bootstrap.min.js?v=3.3.6")"></script>
-    <script src="@Url.Content("~/Scripts/content.min.js?v=1.0.0")"></script>
-
-    <script src="@Url.Content("~/Scripts/plugins/bootstrap-table/bootstrap-table.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js")"></script>
-
-    <!-- layer javascript -->
-    <script src="@Url.Content("~/Scripts/plugins/layer/layer.min.js")"></script>
-    <!-- jQuery Validation plugin javascript-->
-    <script src="@Url.Content("~/Scripts/plugins/validate/jquery.validate.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/plugins/validate/messages_zh.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/closeanimation.js")"></script>
-    <script src="@Url.Content("~/Scripts/Default.js")?v=1.0"></script>
+    <script src="@Url.Content("~/js/jquery.min.js?v=2.1.4")"></script>
+    <script src="@Url.Content("~/js/bootstrap.min.js?v=3.3.6")"></script>
+    <script src="@Url.Content("~/js/content.min.js?v=1.0.0")"></script>
+    <script src="@Url.Content("~/js/plugins/bootstrap-table/bootstrap-table.min.js")"></script>
+    <script src="@Url.Content("~/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js")"></script>
+    <script src="@Url.Content("~/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js")"></script>
+    <script src="@Url.Content("~/js/demo/bootstrap-table-demo.min.js")"></script>
+    <script src="@Url.Content("~/js/plugins/layer-v3.0.3/layer/layer.js")"></script>
+    <script src="@Url.Content("~/js/layerHelper.js?v=1.0.2")"></script>
+    <script src="@Url.Content("~/js/plugins/toastr/toastr.min.js")"></script>
+    <script src="@Url.Content("~/js/plugins/sweetalert/sweetalert.min.js")"></script>
+    <script src="@Url.Content("~/js/plugins/validate/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/js/plugins/validate/messages_zh.min.js")"></script>
+    <script src="@Url.Content("~/js/closewave.js?v=1.0.0")"></script>
+    <script src="@Url.Content("~/js/plugins/My97DatePicker/WdatePicker.js")"></script>
+    <script>
+        $(function () {
+            toastr.options = {
+                "closeButton": true,
+                "debug": true,
+                "progressBar": true,
+                "positionClass": "toast-top-full-width",
+                "showDuration": "400",
+                "hideDuration": "1000",
+                "timeOut": "3000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+        })
+    </script>
     @RenderSection("script", false)
 </body>
 </html>

@@ -1,23 +1,26 @@
 ﻿@using Webdiyer.WebControls.Mvc
 @model lltg._1688.rponey.cc.Model.Search.SearchParameter
 <!--http://www.webdiyer.com/-->
-<div class="fixed-table-pagination" style="display: block;">
-    <div class="pull-left pagination-detail">
-        <span class="pagination-info">共 @(Model.TotalPage) 页 @(Model.Count) 条记录，当前为第 @(Model.Page) 页</span>
+@if (Model.Count > 0)
+{
+    <div class="fixed-table-pagination" style="display: block;">
+        <div class="pull-left pagination-detail">
+            <span class="pagination-info">共 @(Model.TotalPage) 页 @(Model.Count) 条记录，当前为第 @(Model.Page) 页</span>
+        </div>
+        <div class="pull-right pagination">
+            @Html.Pager(Model.Count, Model.PageSize, Model.Page, new PagerOptions
+       {
+           PageIndexParameterName = "Page",
+           NumericPagerItemCount = 5,
+           ContainerTagName = "ul",
+           CssClass = "pagination",
+           CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
+           DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
+           PagerItemTemplate = "<li>{0}</li>",
+           Id = "bootstrappager2",
+           PageIndexBoxId = "pageIndexBox",
+           GoToButtonId = "goToBtn"
+       })
+        </div>
     </div>
-    <div class="pull-right pagination">
-        @Html.Pager(Model.Count, Model.PageSize, Model.Page, new PagerOptions
-   {
-       PageIndexParameterName = "Page",
-       NumericPagerItemCount = 5,
-       ContainerTagName = "ul",
-       CssClass = "pagination",
-       CurrentPagerItemTemplate = "<li class=\"active\"><a href=\"#\">{0}</a></li>",
-       DisabledPagerItemTemplate = "<li class=\"disabled\"><a>{0}</a></li>",
-       PagerItemTemplate = "<li>{0}</li>",
-       Id = "bootstrappager2",
-       PageIndexBoxId = "pageIndexBox",
-       GoToButtonId = "goToBtn"
-   })
-    </div>
-</div>
+}

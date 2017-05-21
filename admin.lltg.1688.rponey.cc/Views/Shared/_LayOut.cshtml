@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <meta name="keywords" content="@ViewBag.Keywords">
+    <meta name="description" content="@ViewBag.Description">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="@Url.Content("~/Content/HplusCSS/bootstrap.min.css?v=3.3.6")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/HplusCSS/plugins/bootstrap-table/bootstrap-table.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/HplusCSS/font-awesome.min.css?v=4.4.0")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/HplusCSS/animate.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/HplusCSS/style.css?v=4.1.0")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/HplusCSS/plugins/sweetalert/sweetalert.css")" rel="stylesheet">
+    @RenderSection("head", false)
+    
+</head>
+<body class="gray-bg">
+    @RenderBody()
+    <script src="@Url.Content("~/Scripts/jquery.min.js?v=2.1.4")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js?v=3.3.6")"></script>
+    <script src="@Url.Content("~/Scripts/content.min.js?v=1.0.0")"></script>
+
+    <script src="@Url.Content("~/Scripts/plugins/bootstrap-table/bootstrap-table.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js")"></script>
+
+    <!-- layer javascript -->
+    <script src="@Url.Content("~/Scripts/plugins/layer/layer.min.js")"></script>
+    <!-- jQuery Validation plugin javascript-->
+    <script src="@Url.Content("~/Scripts/plugins/validate/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/validate/messages_zh.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/plugins/sweetalert/sweetalert.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/closeanimation.js")"></script>
+    <script src="@Url.Content("~/Scripts/Default.js")?v=1.0"></script>
+    @RenderSection("script", false)
+</body>
+</html>

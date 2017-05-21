@@ -57,6 +57,7 @@
     <Compile Include="ProductUserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T_ProductUserTokenDal.cs" />
+    <Compile Include="YinLiuTagDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\lltg.1688.rponey.cc.Model\lltg.1688.rponey.cc.Model.csproj">

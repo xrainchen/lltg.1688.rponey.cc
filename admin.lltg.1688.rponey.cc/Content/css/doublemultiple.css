@@ -1,0 +1,26 @@
+﻿.dbmultitable {
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    table-layout: fixed;
+    width: 90%;
+    background-color: #FFF;
+}
+
+    .dbmultitable th {
+        text-align: center;
+        font-weight: bold;
+        background-color:#f0eff0;
+    }
+
+    .dbmultitable td, .dbmultitable th {
+        border: 1px solid #cad9ea;
+        padding: 10px 5px 10px;
+        word-wrap: break-word;
+    }
+
+    .dbmultitable tr.alter {
+        background-color: #f5fafe;
+    }
+.trItem:hover {
+    background-color: #ededed;
+}

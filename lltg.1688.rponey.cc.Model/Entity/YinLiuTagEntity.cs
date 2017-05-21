@@ -9,9 +9,9 @@ namespace lltg._1688.rponey.cc.Model.Entity
     {
         public long Id { get; set; }
 
-        public string TagName { get; set; }
+        public string Name { get; set; }
 
-        public PublicEnum.YinLiuTagTypeEnum YinLiuTagType { get; set; }
+        public PublicEnum.YinLiuTagTypeEnum Type { get; set; }
 
         /// <summary>
         /// 系统标签用户id为空

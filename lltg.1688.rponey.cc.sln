@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "第三方", "第三方", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "测试", "测试\测试.csproj", "{624F8BD2-2F0D-4265-8048-33B518719941}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "admin.lltg.1688.rponey.cc", "admin.lltg.1688.rponey.cc\admin.lltg.1688.rponey.cc.csproj", "{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{624F8BD2-2F0D-4265-8048-33B518719941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{624F8BD2-2F0D-4265-8048-33B518719941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{624F8BD2-2F0D-4265-8048-33B518719941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -22,6 +22,10 @@ namespace admin.lltg._1688.rponey.cc.Controllers
         [HttpGet]
         public ActionResult Edit(YinLiuTagViewModel model)
         {
+            if (model.Id > 0)
+            {
+                model = _yinLiuTagBll.Value.GetView(model.Id);
+            }
             return View(model);
         }
 
@@ -49,5 +53,7 @@ namespace admin.lltg._1688.rponey.cc.Controllers
             }
             return LayerHelper.Warn($"{description}失败");
         }
+
+
     }
 }

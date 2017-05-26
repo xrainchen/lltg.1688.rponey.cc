@@ -16,7 +16,11 @@ function DoAjaxPostSubmitForm(form) {
                 if (data.statusCode === 200) {
                     parent.parent.toastr.success(data.message);
                     parent.layer.close(index);
-                    parent.window.location.reload();
+                    try {
+                        parent.window.location.reload();
+                    } catch (e) {
+                        console.log(e);
+                    } 
                 }
                 else {
                     toastr.warning(data.message);

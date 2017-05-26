@@ -98,6 +98,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\404.css" />
+    <Content Include="css\fonts\demo.css" />
+    <Content Include="css\fonts\demo_fontclass.html" />
+    <Content Include="css\fonts\demo_symbol.html" />
+    <Content Include="css\fonts\demo_unicode.html" />
+    <Content Include="css\fonts\iconfont.css" />
+    <Content Include="css\fonts\iconfont.js" />
+    <Content Include="css\fonts\iconfont.svg" />
+    <Content Include="css\index.css" />
+    <Content Include="images\404\404bg.png" />
+    <Content Include="images\404\404btn-hover.png" />
+    <Content Include="images\404\404btn.png" />
+    <Content Include="images\404\404_main.png" />
+    <Content Include="images\contact-qq.png" />
+    <Content Include="images\contact-ww.png" />
+    <Content Include="images\yiqi-logo.png" />
     <Content Include="Global.asax" />
     <Content Include="Script\jquery.min.js" />
     <Content Include="Web.config" />
@@ -108,12 +124,17 @@
     <Compile Include="Auth\ITicketStorage.cs" />
     <Compile Include="Auth\TicketStorageFactory.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EffectAnalysisController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\F5Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
+    <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Controllers\SpreadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\FrameModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -125,7 +146,17 @@
     <Content Include="Views\Shared\_Error.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_NoPower.cshtml" />
+    <Content Include="css\fonts\iconfont.eot" />
+    <Content Include="css\fonts\iconfont.ttf" />
+    <Content Include="css\fonts\iconfont.woff" />
+    <Content Include="css\main404.scss" />
     <None Include="Properties\PublishProfiles\lltg.1688.vvzs168.com.pubxml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Spread\Index.cshtml" />
+    <Content Include="Views\Resource\Index.cshtml" />
+    <Content Include="Views\EffectAnalysis\Index.cshtml" />
+    <Content Include="Views\Shared\_404.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -135,7 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
+    <Folder Include="Views\Error\" />
     <Folder Include="Views\OAuth\" />
   </ItemGroup>
   <ItemGroup>

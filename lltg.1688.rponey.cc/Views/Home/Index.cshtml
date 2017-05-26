@@ -1,41 +1,95 @@
 ﻿@model lltg._1688.rponey.cc.Models.MainModel
 @{
-    Layout = null;
+    ViewBag.Title = "首页";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>首页</title>
-</head>
-<body>
-    <div>
-        当前用户：@Model.User.ResourceOwner
-        <a href="javascript:;" onclick="ProductList()">查看产品</a>
-        <a href="javascript:;" onclick="CategoryList()">查看类目</a>
-        <textarea id="txtContent"></textarea>
+<div class="yq-box yq-maintips">
+    <div class="maintips-main">
+        <p> 亿奇网络，您的流量推广服务将于50天后到期，未保证推广连续性，请在有效期内续费&nbsp;&nbsp;<a class="primary-btn" href="javascript:;">去续费</a></p>
+        <p>
+            您共 25 个广告位，已用5个，剩余20个，好评和邀请好友都送5个广告位&nbsp;&nbsp;<a class="text-btn" href="javascript:;">去好评</a>&nbsp;&nbsp;
+            <a class="text-btn" href="javascript:;">邀请好友</a>
+        </p>
+        <p>提示：服务到期后会自动失效，<span class="yq-warn">续费后需重新登陆软件</span></p>
     </div>
-    <script src="@Url.Content("~/Script/jquery.min.js")"></script>
-    <script>
-        function ProductList() {
-            $.ajax({
-                url: '@Url.Action("ProductList")',
-                type: 'POST',
-                success:function(result) {
-                    console.log(result);
-                }
-            });
-        }
-        function CategoryList() {
-            $.ajax({
-                url: '@Url.Action("CategoryList")',
-                type: 'POST',
-                success: function (result) {
-                    $("#txtContent").val(JSON.stringify(result));
-                    console.log(result);
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+    <div class="maintips-img">
+        <img src="/Dimages/demo.png" alt="">
+    </div>
+</div>
+<div class="yq-article">
+    <div class="yq-box yq-share">
+        <h2>运营干货分享帖</h2>
+        <ul class="article-share">
+            <li>
+                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
+                <a class="fr text-btn" href="javascript:;">查看</a>
+            </li>
+            <li>
+                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
+                <a class="fr text-btn" href="javascript:;">查看</a>
+            </li>
+            <li>
+                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
+                <a class="fr text-btn" href="javascript:;">查看</a>
+            </li>
+            <li>
+                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
+                <a class="fr text-btn" href="javascript:;">查看</a>
+            </li>
+            <li>
+                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
+                <a class="fr text-btn" href="javascript:;">查看</a>
+            </li>
+        </ul>
+    </div>
+    <div class="yq-box">
+        <h2>订购/续费动态</h2>
+        <ul class="article-buyed">
+            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
+            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
+            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
+            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
+            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="yq-box">
+    <h2>运营干货分享帖</h2>
+    <ul class="share-main">
+        <li>
+            <a href="javascript:;">
+                <img src="/Dimages/demo3.png" alt="">
+                <p>选择主推款重点推广</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="/Dimages/demo3.png" alt="">
+                <p>选择主推款重点推广</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="/Dimages/demo3.png" alt="">
+                <p>选择主推款重点推广</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="/Dimages/demo3.png" alt="">
+                <p>选择主推款重点推广</p>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="/Dimages/demo3.png" alt="">
+                <p>选择主推款重点推广</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+@section script{
+    
+}
+

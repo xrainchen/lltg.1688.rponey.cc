@@ -41,5 +41,10 @@ namespace lltg._1688.rponey.cc.Bll
                 return Add(entity) > 0;
             }
         }
+
+        public YinLiuTagViewModel GetView(long id)
+        {
+            return _yinLiuTagDal.Value.GetView(id);
+        }
     }
 }

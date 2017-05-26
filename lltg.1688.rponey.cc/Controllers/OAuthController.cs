@@ -66,5 +66,17 @@ namespace lltg._1688.rponey.cc.Controllers
                 return View("_Error");
             }
         }
+
+
+        public ActionResult Login()
+        {
+            var user = new ProductUserViewModel()
+            {
+                Id = 1,
+                ResourceOwner = "xrainchen"
+            };
+            TicketStorageFactory.InstanceTicketStorage<ProductUserViewModel>().SetTicket(user);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

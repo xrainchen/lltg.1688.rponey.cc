@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    background: url(/images/404/404bg.png) center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
+.main-404 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -235px 0 0 -293px;
+    width: 587px;
+    height: 469px;
+    background: url(/images/404/404_main.png) center no-repeat;
+}
+.btn-404{
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 136px;
+  height: 46px;
+  background: url(/images/404/404btn.png) center no-repeat;
+  &:hover{
+    background-image: url(/images/404/404btn-hover.png);
+  }
+}

@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using lltg._1688.rponey.cc.Auth;
 using lltg._1688.rponey.cc.Bll;
 using lltg._1688.rponey.cc.Model.Entity;
 using lltg._1688.rponey.cc.Model.ViewModel;
+using lltg._1688.rponey.cc.Models;
 using Rponey.AlbbSDK;
 using Rponey.AlbbSDK.Model.ApiCommon;
 using RPoney;
@@ -14,6 +16,7 @@ namespace lltg._1688.rponey.cc.Controllers
     public class BaseController : Controller
     {
         private Lazy<T_ProductUserTokenBll> _productUserTokenBll = new Lazy<T_ProductUserTokenBll>();
+        private Lazy<NavBll> _navBll = new Lazy<NavBll>();
         private ProductUserViewModel _user;
         protected ProductUserViewModel CurrentUser
         {
@@ -94,6 +97,26 @@ namespace lltg._1688.rponey.cc.Controllers
                     filterContext.Result = View("_NoPower");
                 }
             }
+
+            if (null != CurrentUser)
+            {
+                var controllerName = filterContext.RouteData.Values["controller"].ToString();
+                var model = new FrameModel()
+                {
+                    CurrentUser = CurrentUser
+                };
+                var siteInfo = new SiteInfo()
+                {
+                    Name="精准站外流量推广",
+                    Company="一七互动网络有限公司"
+
+                };
+                model.Navs = _navBll.Value.GetNavList(CurrentUser.Id);
+                model.Site = siteInfo;
+                ViewBag.Farame = model;
+            }
         }
+
+
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AppConfigBll.cs" />
     <Compile Include="EntityBll.cs" />
+    <Compile Include="NavBll.cs" />
     <Compile Include="ProductUserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T_ProductUserTokenBll.cs" />

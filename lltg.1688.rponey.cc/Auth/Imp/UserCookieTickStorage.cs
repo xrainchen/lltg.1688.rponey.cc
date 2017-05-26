@@ -34,24 +34,21 @@ namespace lltg._1688.rponey.cc.Auth.Imp
         {
             if (HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName] != null)
             {
-                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                var cookie1 = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+                if (cookie1 != null)
                 {
-                    var cookie1 = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
-                    if (cookie1 != null)
-                    {
-                        var hash = cookie1.Value;
-                        var ticket = FormsAuthentication.Decrypt(hash);
-                        var user = ticket.UserData.DeserializeFromJson<ProductUserViewModel>();
-                        if (user != null && user.Id > 0)
-                            return user;
-                    }
-                    else
-                    {
-                        var username = HttpContext.Current.User.Identity.Name;
-                        var user = new ProductUserBll().GetProductUser(username);
-                        SetTicket(user);
+                    var hash = cookie1.Value;
+                    var ticket = FormsAuthentication.Decrypt(hash);
+                    var user = ticket.UserData.DeserializeFromJson<ProductUserViewModel>();
+                    if (user != null && user.Id > 0)
                         return user;
-                    }
+                }
+                else
+                {
+                    var username = HttpContext.Current.User.Identity.Name;
+                    var user = new ProductUserBll().GetProductUser(username);
+                    SetTicket(user);
+                    return user;
                 }
             }
             HttpContext.Current.Response.Redirect(FormsAuthentication.LoginUrl);
@@ -63,7 +60,9 @@ namespace lltg._1688.rponey.cc.Auth.Imp
             if (model == null) return;
             var cookieTime = DateTime.Now;
             var cookieExpiration = DateTime.Now.AddDays(1);
-            var ticket = new FormsAuthenticationTicket(1, model.ResourceOwner, cookieTime, cookieExpiration, true, model.SerializeToJson());
+            var ticket = new FormsAuthenticationTicket(1, 
+                model.ResourceOwner, cookieTime,
+                cookieExpiration, true, model.SerializeToJson());
             var hash = FormsAuthentication.Encrypt(ticket);
             var cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
             HttpContext.Current.Response.Cookies.Add(cookie1);

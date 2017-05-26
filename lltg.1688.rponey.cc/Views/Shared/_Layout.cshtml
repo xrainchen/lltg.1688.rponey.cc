@@ -1,0 +1,45 @@
+﻿@using lltg._1688.rponey.cc.Models
+@{
+    var frame = ViewBag.Farame as FrameModel;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/css/index.css")" rel="stylesheet" />
+    @RenderSection("head", false)
+</head>
+<body>
+    @if (frame != null)
+    {
+        <div class="yq-header">
+            <h1>@(frame.Site.Name)</h1>
+            <ul class="nav-list">
+                @if (frame.Navs.Any())
+                {
+                    var controller = ViewContext.RouteData.Values["controller"].ToString();
+                    var action = ViewContext.RouteData.Values["action"].ToString();
+                    foreach (var nav in frame.Navs)
+                    {
+                        var navClass = (controller==nav.Controller&&action==nav.Action)?"on":"";
+                        <li class="@navClass"><a href="@(nav.Url)"><i class="iconfont @(nav.IconClass)"></i><p>@(nav.Title)</p></a></li>
+                    }
+                }
+            </ul>
+            <div class="user-desc">
+                <p class="contact">@(frame.CurrentUser.ResourceOwner)</p>
+                <i class="iconfont icon-iconfont89"></i>
+            </div>
+        </div>
+        <div class="yq-main">
+            @RenderBody()
+        </div>
+        <div class="yq-footer">
+            <p>©2017 @(frame.Site.Company)</p>
+            <p>@(frame.Site.ICP)</p>
+        </div>
+    }
+    @RenderSection("script", false)
+</body>
+</html>

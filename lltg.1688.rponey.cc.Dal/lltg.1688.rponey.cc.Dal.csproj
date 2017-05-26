@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="EntityDal.cs" />
     <Compile Include="IEntityDal.cs" />
+    <Compile Include="NavDal.cs" />
     <Compile Include="ProductUserDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T_ProductUserTokenDal.cs" />

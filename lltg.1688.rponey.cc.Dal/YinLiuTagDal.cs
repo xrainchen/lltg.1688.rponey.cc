@@ -115,5 +115,24 @@ Where Id=@Id
                 return null;
             }
         }
+        public YinLiuTagViewModel GetView(long id)
+        {
+            var description = "获取系统标签视图";
+            try
+            {
+                var tbName = "YinLiuTag(nolock) ylt";
+                var filter = "ylt.*";
+                var where = "ylt.Id=@Id";
+                var sqlParameter = new List<SqlParameter> { new SqlParameter("@Id", SqlDbType.BigInt) { Value = id } };
+                var sql = $"select top 1 {filter} from {tbName} where {where}";
+                RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}sql:{sql},参数:id{id}");
+                return RPoney.Data.ModelConvertHelper<YinLiuTagViewModel>.ToModel(DataBaseManager.MainDb().ExecuteFillDataTable(sql, sqlParameter.ToArray()));
+            }
+            catch (Exception ex)
+            {
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常", ex);
+                return null;
+            }
+        }
     }
 }

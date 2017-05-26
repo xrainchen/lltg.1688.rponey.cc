@@ -45,6 +45,7 @@
     <Compile Include="Entity\AppConfigEntity.cs" />
     <Compile Include="Entity\GoodsEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
+    <Compile Include="Entity\NavEntity.cs" />
     <Compile Include="Entity\ProductUserBuyDetailEntity.cs" />
     <Compile Include="Entity\ProductUserEntity.cs" />
     <Compile Include="Entity\T_ProductUserTokenEntity.cs" />

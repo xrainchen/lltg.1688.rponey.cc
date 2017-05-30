@@ -46,5 +46,10 @@ namespace lltg._1688.rponey.cc.Bll
         {
             return _yinLiuTagDal.Value.GetView(id);
         }
+
+        public IList<YinLiuTagViewModel> GetTagByProductUserId(long productUserId)
+        {
+            return _yinLiuTagDal.Value.GetTagByProductUserId(productUserId);
+        }
     }
 }

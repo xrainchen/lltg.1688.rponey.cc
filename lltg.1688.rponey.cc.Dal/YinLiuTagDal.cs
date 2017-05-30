@@ -32,7 +32,7 @@ namespace lltg._1688.rponey.cc.Dal
             }
             catch (Exception ex)
             {
-                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常",ex);
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常", ex);
                 return -1;
             }
         }
@@ -58,7 +58,7 @@ Where Id=@Id
             }
             catch (Exception ex)
             {
-                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常",ex);
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常", ex);
                 return false;
             }
         }
@@ -75,7 +75,7 @@ Where Id=@Id
                     var where = "";
                     var orderBy = "ylt.Type asc,ylt.CreatedTime desc";
                     var sqlParameter = new List<SqlParameter>();
-                    var sqlCount = DataBaseManager.GetCountString(tbName,where);
+                    var sqlCount = DataBaseManager.GetCountString(tbName, where);
                     RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}sqlCount:{sqlCount},参数:{searchParameter.SerializeToJSON()}");
                     searchParameter.Count = DataBaseManager.MainDb().ExecuteScalar(sqlCount, sqlParameter.ToArray()).CInt(0, false);
                     if (searchParameter.Count <= 0)
@@ -134,5 +134,31 @@ Where Id=@Id
                 return null;
             }
         }
+
+        public IList<YinLiuTagViewModel> GetTagByProductUserId(long productUserId)
+        {
+            var description = "获取引流推广标签";
+            try
+            {
+                var tbName = "YinLiuTag(nolock) ylt";
+                var filter = "ylt.*";
+                var where = "ylt.ProductUserId is Null or ylt.ProductUserId=@productUserId";
+                var orderBy = "ylt.Type asc,ylt.CreatedTime desc";
+                var sqlParameter = new List<SqlParameter>()
+                {
+                    new SqlParameter("@productUserId",SqlDbType.BigInt) {Value = productUserId}
+                };
+                var sql = $"select {filter} from {tbName} where {where} order by {orderBy}";
+                RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}sql:{sql},参数:{productUserId}");
+                return RPoney.Data.ModelConvertHelper<YinLiuTagViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(sql, sqlParameter.ToArray()));
+
+            }
+            catch (Exception ex)
+            {
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常", ex);
+                return null;
+            }
+        }
+
     }
 }

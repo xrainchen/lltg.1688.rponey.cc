@@ -1,4 +1,7 @@
-﻿@{
+﻿@using RPoney
+@using PublicEnum = lltg._1688.rponey.cc.Model.PublicEnum
+@model lltg._1688.rponey.cc.Models.SpreadModel
+@{
     ViewBag.Title = "推广中心";
 }
 <div class="yq-content">
@@ -15,25 +18,28 @@
                     <label class="form-item-label" for="">系统推荐标签:</label>
                     <div class="form-item-content">
                         <ul class="tags-list">
-                            <li class="on">一件代发</li>
-                            <li>一件代发</li>
-                            <li>一件代发</li>
-                            <li class="on">一件代发</li>
-                            <li>一件代发</li>
-                            <li>一件代发</li>
-                            <li>一件代发</li>
-                            <li>一件代发</li>
+                            @if (Model.YinLiuTagList != null && Model.YinLiuTagList.Any())
+                            {
+                                foreach (var yinliuTag in Model.YinLiuTagList.Where(p => p.Type == PublicEnum.YinLiuTagTypeEnum.System))
+                                {
+                                    <li>@yinliuTag.Name</li>
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
                 <div class="form-item">
-                    <label class="form-item-label" for="">系统推荐标签:</label>
+                    <label class="form-item-label" for="">自定义标签:</label>
                     <div class="form-item-content">
                         <ul class="tags-list">
-                            <li>一件代发</li>
-                            <li>一件代发</li>
+                            @if (Model.YinLiuTagList != null && Model.YinLiuTagList.Any())
+                            {
+                                foreach (var yinliuTag in Model.YinLiuTagList.Where(p => p.Type == PublicEnum.YinLiuTagTypeEnum.Custom))
+                                {
+                                    <li>@yinliuTag.Name</li>
+                                }
+                            }
                         </ul>
-
                         <a class="primary-btn" href="javascript:;">保存标签</a>
                     </div>
                 </div>

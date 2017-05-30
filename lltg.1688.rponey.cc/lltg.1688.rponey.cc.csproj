@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="Models\FrameModel.cs" />
     <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\SpreadModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

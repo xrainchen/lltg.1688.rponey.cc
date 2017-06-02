@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RPoney.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,15 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdPlaceConfigBll.cs" />
     <Compile Include="AppConfigBll.cs" />
     <Compile Include="EntityBll.cs" />
     <Compile Include="NavBll.cs" />
     <Compile Include="ProductUserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemDicBll.cs" />
     <Compile Include="T_ProductUserTokenBll.cs" />
     <Compile Include="YinLiuTagBll.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
+      <Project>{EF1A2AB2-839C-4C8D-8FB0-2358424BD8C5}</Project>
+      <Name>RPoney.Utilty</Name>
+    </ProjectReference>
     <ProjectReference Include="..\lltg.1688.rponey.cc.Dal\lltg.1688.rponey.cc.Dal.csproj">
       <Project>{23DA10DE-BA64-4C8E-92DA-F12A4806B21A}</Project>
       <Name>lltg.1688.rponey.cc.Dal</Name>

@@ -1,14 +1,24 @@
-﻿@model lltg._1688.rponey.cc.Models.MainModel
+﻿@using lltg._1688.rponey.cc.Bll
+@using RPoney
+@using RPoney.Utilty.Extend
+@using PublicEnum = lltg._1688.rponey.cc.Model.PublicEnum
+@model lltg._1688.rponey.cc.Models.MainModel
 @{
     ViewBag.Title = "首页";
 }
 <div class="yq-box yq-maintips">
     <div class="maintips-main">
         <p> 亿奇网络，您的流量推广服务将于50天后到期，未保证推广连续性，请在有效期内续费&nbsp;&nbsp;<a class="primary-btn" href="javascript:;">去续费</a></p>
-        <p>
-            您共 25 个广告位，已用5个，剩余20个，好评和邀请好友都送5个广告位&nbsp;&nbsp;<a class="text-btn" href="javascript:;">去好评</a>&nbsp;&nbsp;
-            <a class="text-btn" href="javascript:;">邀请好友</a>
-        </p>
+        @if (Model.AdPlaceConfig != null)
+        {
+            var presentAdPlaceCount = (new SystemDicBll().Get(PublicEnum.SystemDicEnum.PositiveCommentOrIviteFriendPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0,false);
+            <p>
+                您共 @(Model.AdPlaceConfig.Total) 个广告位，已用@(Model.AdPlaceConfig.Total - Model.AdPlaceConfig.Remain)个，剩余@(Model.AdPlaceConfig.Remain)个，好评和邀请好友都送@(presentAdPlaceCount)个广告位
+                &nbsp;&nbsp;<a class="text-btn" href="javascript:;">去好评</a>
+                &nbsp;&nbsp;<a class="text-btn" href="javascript:;">邀请好友</a>
+            </p>
+        }
+
         <p>提示：服务到期后会自动失效，<span class="yq-warn">续费后需重新登陆软件</span></p>
     </div>
     <div class="maintips-img">
@@ -90,6 +100,6 @@
 </div>
 
 @section script{
-    
+
 }
 

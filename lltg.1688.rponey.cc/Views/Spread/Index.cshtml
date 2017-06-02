@@ -1,8 +1,14 @@
-﻿@using RPoney
+﻿@using lltg._1688.rponey.cc.Bll
+@using RPoney
+@using RPoney.Utilty.Extend
 @using PublicEnum = lltg._1688.rponey.cc.Model.PublicEnum
 @model lltg._1688.rponey.cc.Models.SpreadModel
 @{
     ViewBag.Title = "推广中心";
+    var systemDicBll = new SystemDicBll();
+    var positiveCommentOrIviteFriendPresentAdPlaceCount = (systemDicBll.Get(PublicEnum.SystemDicEnum.PositiveCommentOrIviteFriendPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0, false);
+    var orderPresentAdPlaceCount = (systemDicBll.Get(PublicEnum.SystemDicEnum.OrderOneYearPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0, false);
+
 }
 <div class="yq-content">
     <div class="spread-ad">
@@ -51,9 +57,12 @@
                 <div class="form-item">
                     <label class="form-item-label" style="width:70px;">广告位:</label>
                     <div class="form-item-content spread-descbox" style="margin-left:94px;">
-                        <p>共20个，已使用0个，剩余10个;&nbsp;&nbsp; <a class="primary-btn" href="javascript:;">去订购</a></p>
-                        <p>订购1年可<span style="color:#ff0000;">获得10个广告位</span>奖励&nbsp;&nbsp;<a class="text-btn" href="javascript:;">去订购</a></p>
-                        <p>5分好评可<span style="color:#ff0000;">获得5个广告位</span></p>
+                        @if (Model.AdPlaceConfig != null)
+                        {
+                            <p>共@(Model.AdPlaceConfig.Total)个，已使用@(Model.AdPlaceConfig.Total-Model.AdPlaceConfig.Remain)个，剩余@(Model.AdPlaceConfig.Remain)个;&nbsp;&nbsp; <a class="primary-btn" href="javascript:;">去订购</a></p>
+                        }
+                        <p>订购1年可<span style="color:#ff0000;">获得@(orderPresentAdPlaceCount)个广告位</span>奖励&nbsp;&nbsp;<a class="text-btn" href="javascript:;">去订购</a></p>
+                        <p>5分好评可<span style="color:#ff0000;">获得@(positiveCommentOrIviteFriendPresentAdPlaceCount)个广告位</span></p>
                     </div>
                 </div>
 

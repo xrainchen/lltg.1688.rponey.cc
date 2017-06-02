@@ -13,6 +13,6 @@ namespace lltg._1688.rponey.cc.Model.Entity
 
         public int Total { get; set; }
 
-        public int Used { get; set; }
+        public int Remain { get; set; }
     }
 }

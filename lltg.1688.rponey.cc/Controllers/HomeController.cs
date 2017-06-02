@@ -8,10 +8,12 @@ namespace lltg._1688.rponey.cc.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly Lazy<AdPlaceConfigBll> _adPlaceConfigBll = new Lazy<AdPlaceConfigBll>();
         // GET: Home
         public ActionResult Index(MainModel model)
         {
             model.User = CurrentUser;
+            model.AdPlaceConfig = _adPlaceConfigBll.Value.GetOrInsert(CurrentUser.Id);
             return View(model);
         }
 

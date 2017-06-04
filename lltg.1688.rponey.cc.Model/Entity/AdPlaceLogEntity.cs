@@ -5,6 +5,7 @@ namespace lltg._1688.rponey.cc.Model.Entity
     /// <summary>
     /// 广告位日志
     /// </summary>
+    [Serializable]
     public class AdPlaceLogEntity : IIdentityEntity
     {
 

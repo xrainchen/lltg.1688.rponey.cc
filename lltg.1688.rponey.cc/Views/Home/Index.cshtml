@@ -8,10 +8,10 @@
 }
 <div class="yq-box yq-maintips">
     <div class="maintips-main">
-        <p> 亿奇网络，您的流量推广服务将于50天后到期，未保证推广连续性，请在有效期内续费&nbsp;&nbsp;<a class="primary-btn" href="javascript:;">去续费</a></p>
+        <p> @(Model.User.ResourceOwner)，您的流量推广服务将于50天后到期，未保证推广连续性，请在有效期内续费&nbsp;&nbsp;<a class="primary-btn" href="javascript:;">去续费</a></p>
         @if (Model.AdPlaceConfig != null)
         {
-            var presentAdPlaceCount = (new SystemDicBll().Get(PublicEnum.SystemDicEnum.PositiveCommentOrIviteFriendPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0,false);
+            var presentAdPlaceCount = (new SystemDicBll().Get(PublicEnum.SystemDicEnum.PositiveCommentOrIviteFriendPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0, false);
             <p>
                 您共 @(Model.AdPlaceConfig.Total) 个广告位，已用@(Model.AdPlaceConfig.Total - Model.AdPlaceConfig.Remain)个，剩余@(Model.AdPlaceConfig.Remain)个，好评和邀请好友都送@(presentAdPlaceCount)个广告位
                 &nbsp;&nbsp;<a class="text-btn" href="javascript:;">去好评</a>
@@ -28,78 +28,34 @@
 <div class="yq-article">
     <div class="yq-box yq-share">
         <h2>运营干货分享帖</h2>
-        <ul class="article-share">
-            <li>
-                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
-                <a class="fr text-btn" href="javascript:;">查看</a>
-            </li>
-            <li>
-                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
-                <a class="fr text-btn" href="javascript:;">查看</a>
-            </li>
-            <li>
-                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
-                <a class="fr text-btn" href="javascript:;">查看</a>
-            </li>
-            <li>
-                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
-                <a class="fr text-btn" href="javascript:;">查看</a>
-            </li>
-            <li>
-                <p class="fl yq-nowrap">手把手教你如何制作高质量的标质量的标题手把手教你如何制作...</p>
-                <a class="fr text-btn" href="javascript:;">查看</a>
-            </li>
-        </ul>
+        <ul class="article-share"></ul>
     </div>
     <div class="yq-box">
         <h2>订购/续费动态</h2>
         <ul class="article-buyed">
-            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
-            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
-            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
-            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
-            <li><span>亿...网络技术</span><span>12：45：00</span><span>订购了3个月</span><span>推广引流软件(135元/月)</span></li>
+            
         </ul>
     </div>
 </div>
 
 <div class="yq-box">
-    <h2>运营干货分享帖</h2>
-    <ul class="share-main">
-        <li>
-            <a href="javascript:;">
-                <img src="/Dimages/demo3.png" alt="">
-                <p>选择主推款重点推广</p>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <img src="/Dimages/demo3.png" alt="">
-                <p>选择主推款重点推广</p>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <img src="/Dimages/demo3.png" alt="">
-                <p>选择主推款重点推广</p>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <img src="/Dimages/demo3.png" alt="">
-                <p>选择主推款重点推广</p>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <img src="/Dimages/demo3.png" alt="">
-                <p>选择主推款重点推广</p>
-            </a>
-        </li>
-    </ul>
+    <h2>推广方法传授</h2>
+    <ul class="share-main"></ul>
 </div>
-
 @section script{
+    <script>
+        $(function(){
+            $.get("@Url.Action("YunYinGanHuo", "ShareArticle")", function(result){
+                $(".article-share").html(result);
+            });
+            $.get("@Url.Action("GetOrderList", "ProductOrder")", function (result) {
+                $(".article-buyed").html(result);
+            });
+            $.get("@Url.Action("TuiGuangFangFaChuangShou", "ShareArticle")", function(result){
+                $(".share-main").html(result);
+            });
 
+        });
+    </script>
 }
 

@@ -129,7 +129,9 @@
     <Compile Include="Controllers\F5Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OAuthController.cs" />
+    <Compile Include="Controllers\ProductOrderController.cs" />
     <Compile Include="Controllers\ResourceController.cs" />
+    <Compile Include="Controllers\ShareArticleController.cs" />
     <Compile Include="Controllers\SpreadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -158,6 +160,9 @@
     <Content Include="Views\Resource\Index.cshtml" />
     <Content Include="Views\EffectAnalysis\Index.cshtml" />
     <Content Include="Views\Shared\_404.cshtml" />
+    <Content Include="Views\ShareArticle\YunYinGanHuo.cshtml" />
+    <Content Include="Views\ShareArticle\TuiGuangFangFaChuangShou.cshtml" />
+    <Content Include="Views\ProductOrder\GetOrderList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

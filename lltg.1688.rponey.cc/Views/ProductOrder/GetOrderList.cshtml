@@ -1,0 +1,19 @@
+﻿@using lltg._1688.rponey.cc.Model.ViewModel
+@using RPoney.Utilty.Extend
+@model lltg._1688.rponey.cc.Model.Search.ProductOrderSearchParameter
+@{
+    Layout = null;
+    var returnList = Model.ReturnList as IList<ProductOrderViewModel>;
+}
+@if (returnList != null && returnList.Any())
+{
+    foreach (var item in returnList)
+    {
+        <li>
+            <span>@(item.ProductUserName)</span>
+            <span>@(item.BuyDateTime.ToString("yyyy-MM-dd"))</span>
+            <span>@(item.OrderType.GetRemark())了@(item.GP)</span>
+            <span>@(item.ProductName)(@(item.Price/100)元/@(item.Unit))</span>
+        </li>
+    }
+}

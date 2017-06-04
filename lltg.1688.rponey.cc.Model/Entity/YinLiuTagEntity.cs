@@ -5,6 +5,7 @@ namespace lltg._1688.rponey.cc.Model.Entity
     /// <summary>
     /// 引流标签
     /// </summary>
+    [Serializable]
     public class YinLiuTagEntity : IIdentityEntity
     {
         public long Id { get; set; }

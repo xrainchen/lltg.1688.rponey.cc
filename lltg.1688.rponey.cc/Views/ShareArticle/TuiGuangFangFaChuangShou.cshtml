@@ -1,0 +1,18 @@
+﻿@using lltg._1688.rponey.cc.Model.Entity
+@model lltg._1688.rponey.cc.Model.Search.ShareArticleSearchParameter
+@{
+    Layout = null;
+    var returnList = Model.ReturnList as IList<ShareArticleEntity>;
+}
+@if (returnList != null && returnList.Any())
+{
+    foreach (var item in returnList)
+    {
+        <li>
+            <a target="_black" href="@item.ArticleUrl">
+                <img src="@item.Cover" alt="">
+                <p>@item.Title</p>
+            </a>
+        </li>
+    }
+}

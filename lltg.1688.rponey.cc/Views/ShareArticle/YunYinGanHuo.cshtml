@@ -1,0 +1,16 @@
+﻿@using lltg._1688.rponey.cc.Model.Entity
+@model lltg._1688.rponey.cc.Model.Search.ShareArticleSearchParameter
+@{
+    Layout = null;
+    var returnList = Model.ReturnList as IList<ShareArticleEntity>;
+}
+@if (returnList != null && returnList.Any())
+{
+    foreach (var item in returnList)
+    {
+        <li>
+            <p class="fl yq-nowrap">@item.Title</p>
+            <a class="fr text-btn" target="_black" href="@item.ArticleUrl">查看</a>
+        </li>
+    }
+}

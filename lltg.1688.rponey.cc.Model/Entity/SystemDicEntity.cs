@@ -1,5 +1,8 @@
-﻿namespace lltg._1688.rponey.cc.Model.Entity
+﻿using System;
+
+namespace lltg._1688.rponey.cc.Model.Entity
 {
+    [Serializable]
     public class SystemDicEntity
     {
         public long Id { get; set; }

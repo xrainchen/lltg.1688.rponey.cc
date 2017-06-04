@@ -2,6 +2,7 @@
 
 namespace lltg._1688.rponey.cc.Model.Entity
 {
+    [Serializable]
     public class T_ProductUserTokenEntity : IIdentityEntity
     {
         public long Id { get; set; }

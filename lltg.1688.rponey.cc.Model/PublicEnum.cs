@@ -57,5 +57,38 @@ namespace lltg._1688.rponey.cc.Model
             [Remark("订购一年赠送广告位数量")]
             OrderOneYearPresentAdPlaceCount,
         }
+
+        /// <summary>
+        /// 分享文章类型
+        /// </summary>
+        public enum ShareArticleTypeEnum
+        {
+            /// <summary>
+            /// 运营推广干货分享帖
+            /// </summary>
+            [Remark("运营推广干货分享帖")]
+            YunYinGanHuo = 1,
+            /// <summary>
+            /// 推广方法传授帖
+            /// </summary>
+            [Remark("推广方法传授帖")]
+            TuiGuangFangFaChuangShou = 2
+        }
+        /// <summary>
+        /// 产品订单类型
+        /// </summary>
+        public enum ProductOrderTypeEnum
+        {
+            /// <summary>
+            /// 订购
+            /// </summary>
+            [Remark("订购")]
+            Buy = 1,
+            /// <summary>
+            /// 续费
+            /// </summary>
+            [Remark("续费")]
+            Renewal = 2
+        }
     }
 }

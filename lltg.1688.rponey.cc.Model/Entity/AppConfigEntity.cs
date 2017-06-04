@@ -1,6 +1,12 @@
-﻿namespace lltg._1688.rponey.cc.Model.Entity
+﻿using System;
+
+namespace lltg._1688.rponey.cc.Model.Entity
 {
-    public class AppConfigEntity 
+    /// <summary>
+    /// 广告位配置
+    /// </summary>
+    [Serializable]
+    public class AppConfigEntity
     {
         public long Id { get; set; }
 

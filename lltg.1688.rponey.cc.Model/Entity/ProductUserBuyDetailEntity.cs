@@ -6,6 +6,7 @@ namespace lltg._1688.rponey.cc.Model.Entity
     /// <summary>
     /// 产品用户消费动态
     /// </summary>
+    [Serializable]
     public class ProductUserBuyDetailEntity : IIdentityEntity
     {
         public long Id { get; set; }

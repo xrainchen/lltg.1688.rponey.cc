@@ -48,8 +48,10 @@
     <Compile Include="AppConfigBll.cs" />
     <Compile Include="EntityBll.cs" />
     <Compile Include="NavBll.cs" />
+    <Compile Include="ProductOrderBll.cs" />
     <Compile Include="ProductUserBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShareArticleBll.cs" />
     <Compile Include="SystemDicBll.cs" />
     <Compile Include="T_ProductUserTokenBll.cs" />
     <Compile Include="YinLiuTagBll.cs" />

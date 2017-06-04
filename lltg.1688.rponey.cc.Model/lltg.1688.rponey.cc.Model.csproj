@@ -46,16 +46,21 @@
     <Compile Include="Entity\GoodsEntity.cs" />
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\NavEntity.cs" />
+    <Compile Include="Entity\ProductOrderEntity.cs" />
     <Compile Include="Entity\ProductUserBuyDetailEntity.cs" />
     <Compile Include="Entity\ProductUserEntity.cs" />
+    <Compile Include="Entity\ShareArticleEntity.cs" />
     <Compile Include="Entity\SystemDicEntity.cs" />
     <Compile Include="Entity\T_ProductUserTokenEntity.cs" />
     <Compile Include="Entity\YinLiuTagEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublicConst.cs" />
     <Compile Include="PublicEnum.cs" />
+    <Compile Include="Search\ProductOrderSearchParameter.cs" />
     <Compile Include="Search\SearchParameter.cs" />
+    <Compile Include="Search\ShareArticleSearchParameter.cs" />
     <Compile Include="Search\YinLiuTagSerachParameter.cs" />
+    <Compile Include="ViewModel\ProductOrderViewModel.cs" />
     <Compile Include="ViewModel\ProductUserViewModel.cs" />
     <Compile Include="ViewModel\YinLiuTagViewModel.cs" />
   </ItemGroup>

@@ -449,6 +449,7 @@
     <Content Include="js\plugins\layer\laydate-v1.1\layDate官网.url" />
     <Content Include="Config\log4net.config" />
     <Content Include="Config\RPoneyRedisLog.config" />
+    <None Include="Properties\PublishProfiles\admin.lltg.1688.vvzs168.com.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

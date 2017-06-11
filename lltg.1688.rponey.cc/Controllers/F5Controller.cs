@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web;
+using System.Web.Mvc;
+using RPoney;
 
 namespace lltg._1688.rponey.cc.Controllers
 {
@@ -16,6 +19,30 @@ namespace lltg._1688.rponey.cc.Controllers
         public ActionResult JsonText(TestModel model)
         {
             return Json(model);
+        }
+        [HttpPost]
+        public string Upload(TestModel model)
+        {
+            try
+            {
+                var files = Request.Files;
+                var str = string.Empty;
+                if (files.Count > 0)
+                {
+                    for (var i = 0; i < files.Count; i++)
+                    {
+                        var fileName = Server.MapPath($@"~\Upload\{Guid.NewGuid().ToString("N")}.jpg");
+                        files[i].SaveAs(fileName);
+                        str += fileName;
+                    }
+                }
+
+                return str + model.SerializeToJSON();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 

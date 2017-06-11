@@ -56,6 +56,13 @@ namespace lltg._1688.rponey.cc.Model
             [GlobalSetting("OrderOneYearPresentAdPlaceCount")]
             [Remark("订购一年赠送广告位数量")]
             OrderOneYearPresentAdPlaceCount,
+
+            /// <summary>
+            /// 新用户赠送广告位
+            /// </summary>
+            [GlobalSetting("NewUserPresentAdPlaceCount")]
+            [Remark("新用户赠送广告位")]
+            NewUserPresentAdPlaceCount,
         }
 
         /// <summary>

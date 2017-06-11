@@ -8,6 +8,7 @@
     var systemDicBll = new SystemDicBll();
     var positiveCommentOrIviteFriendPresentAdPlaceCount = (systemDicBll.Get(PublicEnum.SystemDicEnum.PositiveCommentOrIviteFriendPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0, false);
     var orderPresentAdPlaceCount = (systemDicBll.Get(PublicEnum.SystemDicEnum.OrderOneYearPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0, false);
+    var newUserPresentAdPlaceCount = (systemDicBll.Get(PublicEnum.SystemDicEnum.NewUserPresentAdPlaceCount.GetSettingKey())?.Value).CInt(0, false);
 
 }
 <div class="yq-content">
@@ -59,14 +60,14 @@
                     <div class="form-item-content spread-descbox" style="margin-left:94px;">
                         @if (Model.AdPlaceConfig != null)
                         {
-                            <p>共@(Model.AdPlaceConfig.Total)个，已使用@(Model.AdPlaceConfig.Total-Model.AdPlaceConfig.Remain)个，剩余@(Model.AdPlaceConfig.Remain)个;&nbsp;&nbsp; <a class="primary-btn" href="javascript:;">去订购</a></p>
+                            <p>共@(Model.AdPlaceConfig.Total)个，已使用@(Model.AdPlaceConfig.Total-Model.AdPlaceConfig.Remain)个，剩余@(Model.AdPlaceConfig.Remain)个&nbsp;&nbsp; <a class="primary-btn" href="javascript:;">去订购</a></p>
                         }
                         <p>订购1年可<span style="color:#ff0000;">获得@(orderPresentAdPlaceCount)个广告位</span>奖励&nbsp;&nbsp;<a class="text-btn" href="javascript:;">去订购</a></p>
                         <p>5分好评可<span style="color:#ff0000;">获得@(positiveCommentOrIviteFriendPresentAdPlaceCount)个广告位</span></p>
                     </div>
                 </div>
 
-                <p class="desc">提示：每个用户免费赠送15个阿里优品广告位，已续订1年或已给好评的客户，找左侧的客服领取奖励的广告位。</p>
+                <p class="desc">提示：每个用户免费赠送@(newUserPresentAdPlaceCount)个阿里优品广告位，已续订1年或已给好评的客户，找左侧的客服领取奖励的广告位。</p>
 
             </div>
         </div>

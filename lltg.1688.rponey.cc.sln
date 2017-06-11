@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "测试", "测试\测试.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "admin.lltg.1688.rponey.cc", "admin.lltg.1688.rponey.cc\admin.lltg.1688.rponey.cc.csproj", "{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "服务层", "服务层", "{363D6C49-3AC5-4F84-BDD5-18223033A6C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lltg.1688.rponey.cc.Service", "lltg.1688.rponey.cc.Service\lltg.1688.rponey.cc.Service.csproj", "{334B194A-EEAE-47E7-8F5B-E558788B68B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,10 @@ Global
 		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{194D8CA2-741A-4B0D-8D58-D562F6DB0FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{334B194A-EEAE-47E7-8F5B-E558788B68B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{334B194A-EEAE-47E7-8F5B-E558788B68B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{334B194A-EEAE-47E7-8F5B-E558788B68B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{334B194A-EEAE-47E7-8F5B-E558788B68B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +88,6 @@ Global
 		{23DA10DE-BA64-4C8E-92DA-F12A4806B21A} = {9C099BBF-4A03-479A-AD53-6D036B6CDD62}
 		{114BE206-408F-4FC0-937F-DE5364644089} = {9C099BBF-4A03-479A-AD53-6D036B6CDD62}
 		{415A1A85-376D-4920-B481-1FEFD219480B} = {FCA3495B-54D6-483F-9175-E97AB1D2EF15}
+		{334B194A-EEAE-47E7-8F5B-E558788B68B8} = {363D6C49-3AC5-4F84-BDD5-18223033A6C9}
 	EndGlobalSection
 EndGlobal

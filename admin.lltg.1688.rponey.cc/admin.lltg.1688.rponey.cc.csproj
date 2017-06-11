@@ -410,6 +410,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Common\LayerHelper.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ProductOrderController.cs" />
+    <Compile Include="Controllers\SystemDicController.cs" />
     <Compile Include="Controllers\YinLiuTagManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -450,6 +452,10 @@
     <Content Include="Config\log4net.config" />
     <Content Include="Config\RPoneyRedisLog.config" />
     <None Include="Properties\PublishProfiles\admin.lltg.1688.vvzs168.com.pubxml" />
+    <Content Include="Views\SystemDic\List.cshtml" />
+    <Content Include="Views\SystemDic\Edit.cshtml" />
+    <Content Include="Views\ProductOrder\List.cshtml" />
+    <Content Include="Views\ProductOrder\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

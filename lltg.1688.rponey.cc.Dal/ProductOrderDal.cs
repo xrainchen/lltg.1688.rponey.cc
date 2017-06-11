@@ -42,7 +42,7 @@ Values(@ProductUserId,@BuyDateTime,@ProductName,@Price,@Unit,@GP,@CreatedTime,@O
 
         public IList<ProductOrderViewModel> GetOrderList(SearchParameter search)
         {
-            var description = "获取订购/续费动态列表";
+            var description = "前台获取订购/续费动态列表";
             try
             {
                 var tbName = "ProductOrder(nolock) po left join ProductUser(nolock) pu on po.ProductUserId=pu.Id";
@@ -51,6 +51,48 @@ Values(@ProductUserId,@BuyDateTime,@ProductName,@Price,@Unit,@GP,@CreatedTime,@O
                 var orderBy = " po.BuyDateTime desc";
                 var searchPara = search as ProductOrderSearchParameter;
                 var sqlParameter = new List<SqlParameter>();
+                var pageCount = DataBaseManager.GetCountString(tbName, where);
+                RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}pageCount:{pageCount},参数:{search.SerializeToJSON()}");
+                search.Count = DataBaseManager.MainDb().ExecuteScalar(pageCount, sqlParameter.ToArray()).CInt(0, false);
+                if (search.Count > 0)
+                {
+                    var pageSql = DataBaseManager.GetPageString(tbName, filter, orderBy, where, search.Page, search.PageSize);
+                    RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}pageSql:{pageSql},参数:{search.SerializeToJSON()}");
+                    return RPoney.Data.ModelConvertHelper<ProductOrderViewModel>.ToModels(DataBaseManager.MainDb().ExecuteFillDataTable(pageSql, sqlParameter.ToArray()));
+                }
+                return Enumerable.Empty<ProductOrderViewModel>().ToList();
+            }
+            catch (Exception ex)
+            {
+                RPoney.Log.LoggerManager.Error(GetType().Name, $"{description}异常", ex);
+                return Enumerable.Empty<ProductOrderViewModel>().ToList();
+            }
+        }
+
+        /// <summary>
+        /// 后台
+        /// </summary>
+        /// <param name="search"></param>
+        /// <returns></returns>
+        public IList<ProductOrderViewModel> GetList(SearchParameter search)
+        {
+            var description = "后台获取订购/续费动态列表";
+            try
+            {
+                var tbName = "ProductOrder(nolock) po left join ProductUser(nolock) pu on po.ProductUserId=pu.Id";
+                var filter = "po.*,pu.ResourceOwner as ProductUserName";
+                var where = "";
+                var orderBy = " po.BuyDateTime desc";
+                var searchPara = search as ProductOrderSearchParameter;
+                var sqlParameter = new List<SqlParameter>();
+                if (searchPara != null)
+                {
+                    if (!string.IsNullOrWhiteSpace(searchPara.ProductUserName))
+                    {
+                        where += " and pu.ResourceOwner like @ProductUserName";
+                        sqlParameter.Add(new SqlParameter("@ProductUserName", SqlDbType.NVarChar) {Value = $"%{searchPara.ProductUserName}%"});
+                    }
+                }
                 var pageCount = DataBaseManager.GetCountString(tbName, where);
                 RPoney.Log.LoggerManager.Debug(GetType().Name, $"{description}pageCount:{pageCount},参数:{search.SerializeToJSON()}");
                 search.Count = DataBaseManager.MainDb().ExecuteScalar(pageCount, sqlParameter.ToArray()).CInt(0, false);

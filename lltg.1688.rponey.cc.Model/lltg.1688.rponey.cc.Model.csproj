@@ -59,6 +59,7 @@
     <Compile Include="Search\ProductOrderSearchParameter.cs" />
     <Compile Include="Search\SearchParameter.cs" />
     <Compile Include="Search\ShareArticleSearchParameter.cs" />
+    <Compile Include="Search\SystemDicSearchParameter.cs" />
     <Compile Include="Search\YinLiuTagSerachParameter.cs" />
     <Compile Include="ViewModel\ProductOrderViewModel.cs" />
     <Compile Include="ViewModel\ProductUserViewModel.cs" />

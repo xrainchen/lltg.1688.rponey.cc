@@ -19,5 +19,10 @@ namespace lltg._1688.rponey.cc.Bll
         {
             return _productOrderDal.Value.GetOrderList(search);
         }
+
+        public IList<ProductOrderViewModel> GetList(SearchParameter search)
+        {
+            return _productOrderDal.Value.GetList(search);
+        }
     }
 }

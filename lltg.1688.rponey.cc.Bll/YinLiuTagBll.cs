@@ -30,6 +30,11 @@ namespace lltg._1688.rponey.cc.Bll
         {
             return _yinLiuTagDal.Value.Update(model);
         }
+
+        public bool Delete(long productUserId)
+        {
+            return _yinLiuTagDal.Value.Delete(productUserId);
+        }
         public bool Save(YinLiuTagEntity entity)
         {
             if (entity.Id > 0)
@@ -50,6 +55,11 @@ namespace lltg._1688.rponey.cc.Bll
         public IList<YinLiuTagViewModel> GetTagByProductUserId(long productUserId)
         {
             return _yinLiuTagDal.Value.GetTagByProductUserId(productUserId);
+        }
+
+        public IList<YinLiuTagViewModel> GetCustomTagByProductUserId(long productUserId)
+        {
+            return _yinLiuTagDal.Value.GetCustomTagByProductUserId(productUserId);
         }
     }
 }

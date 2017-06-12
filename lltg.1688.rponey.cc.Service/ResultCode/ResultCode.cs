@@ -1,6 +1,6 @@
 ﻿using RPoney.Utilty.Extend;
 
-namespace lltg._1688.rponey.cc.Service.ResultCode
+namespace lltg._1688.rponey.cc.Service
 {
     public enum ResultCode
     {
@@ -20,5 +20,10 @@ namespace lltg._1688.rponey.cc.Service.ResultCode
         [Remark("产品用户")]
         ProductUser = 200,
 
+
+        [Remark("引流标签")]
+        YinLiuTag = 300,
+        [Remark("超过引流标签最大限制数")]
+        YinLiuTagOverLimitAddCount = 301,
     }
 }

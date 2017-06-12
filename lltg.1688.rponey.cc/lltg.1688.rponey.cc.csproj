@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ResourceController.cs" />
     <Compile Include="Controllers\ShareArticleController.cs" />
     <Compile Include="Controllers\SpreadController.cs" />
+    <Compile Include="Controllers\YinLiuTagController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,7 @@
     <Folder Include="Upload\" />
     <Folder Include="Views\Error\" />
     <Folder Include="Views\OAuth\" />
+    <Folder Include="Views\YinLiuTag\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
@@ -188,6 +190,10 @@
     <ProjectReference Include="..\lltg.1688.rponey.cc.Model\lltg.1688.rponey.cc.Model.csproj">
       <Project>{245022c4-5643-4f79-8a63-393aa5829d66}</Project>
       <Name>lltg.1688.rponey.cc.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lltg.1688.rponey.cc.Service\lltg.1688.rponey.cc.Service.csproj">
+      <Project>{334b194a-eeae-47e7-8f5b-e558788b68b8}</Project>
+      <Name>lltg.1688.rponey.cc.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Rponey.AlbbSDK\Rponey.AlbbSDK.csproj">
       <Project>{415a1a85-376d-4920-b481-1fefd219480b}</Project>

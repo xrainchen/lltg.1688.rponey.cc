@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RPoney.Log">
+      <HintPath>..\..\..\..\Lib.Framework\Rponey.Log\RPoney.Log.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,11 +49,20 @@
     <Compile Include="ProductOrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultCode\ResultCode.cs" />
+    <Compile Include="YinLiuTagService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\cms.rponey.cc\cms.rponey.cc.Utilty\RPoney.Utilty.csproj">
       <Project>{ef1a2ab2-839c-4c8d-8fb0-2358424bd8c5}</Project>
       <Name>RPoney.Utilty</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lltg.1688.rponey.cc.Bll\lltg.1688.rponey.cc.Bll.csproj">
+      <Project>{114be206-408f-4fc0-937f-de5364644089}</Project>
+      <Name>lltg.1688.rponey.cc.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\lltg.1688.rponey.cc.Model\lltg.1688.rponey.cc.Model.csproj">
+      <Project>{245022c4-5643-4f79-8a63-393aa5829d66}</Project>
+      <Name>lltg.1688.rponey.cc.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

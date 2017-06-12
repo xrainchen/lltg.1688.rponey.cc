@@ -47,7 +47,6 @@
     <Compile Include="Entity\IEntity.cs" />
     <Compile Include="Entity\NavEntity.cs" />
     <Compile Include="Entity\ProductOrderEntity.cs" />
-    <Compile Include="Entity\ProductUserBuyDetailEntity.cs" />
     <Compile Include="Entity\ProductUserEntity.cs" />
     <Compile Include="Entity\ShareArticleEntity.cs" />
     <Compile Include="Entity\SystemDicEntity.cs" />

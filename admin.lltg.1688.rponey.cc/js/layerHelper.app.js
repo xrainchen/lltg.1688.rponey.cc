@@ -14,7 +14,7 @@ function DoAjaxPostSubmitForm(form) {
             var url = $(form).attr("action");
             $.post(url,$(form).serialize(),function (data) {
                 if (data.statusCode === 200) {
-                    parent.parent.toastr.success(data.message);
+                    parent.toastr.success(data.message);
                     parent.layer.close(index);
                     try {
                         parent.window.location.reload();

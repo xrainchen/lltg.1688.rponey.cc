@@ -90,7 +90,7 @@ namespace lltg._1688.rponey.cc.Dal
             var description = "更新系统字典配置";
             try
             {
-                var sql = @"update [SystemDic] set Id=@Id,[Key]=@Key,[Value]=@Value,Description=@Description where Id=@Id";
+                var sql = @"update [SystemDic] set [Key]=@Key,[Value]=@Value,Description=@Description where Id=@Id";
                 var sqlParameter = new List<SqlParameter>{
                 new SqlParameter("@Id",SqlDbType.VarChar) {Value = entity.Id},
                 new SqlParameter("@Key",SqlDbType.VarChar) {Value = entity.Key},

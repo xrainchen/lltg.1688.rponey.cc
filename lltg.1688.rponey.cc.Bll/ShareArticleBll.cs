@@ -24,5 +24,27 @@ namespace lltg._1688.rponey.cc.Bll
         {
             return _shareArticleDal.Value.GetRecommendShareArticle(search);
         }
+
+        public ShareArticleEntity Get(long id)
+        {
+            return _shareArticleDal.Value.Get(id);
+        }
+
+        public bool Update(ShareArticleEntity entity)
+        {
+            return _shareArticleDal.Value.Update(entity);
+        }
+
+        public bool Save(ShareArticleEntity entity)
+        {
+            if (entity.Id > 0)
+            {
+                return Update(entity);
+            }
+            else
+            {
+                return Add(entity) > 0;
+            }
+        }
     }
 }

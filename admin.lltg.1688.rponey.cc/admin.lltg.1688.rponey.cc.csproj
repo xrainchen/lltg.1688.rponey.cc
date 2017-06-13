@@ -254,7 +254,7 @@
     <Content Include="js\jquery-ui-1.10.4.min.js" />
     <Content Include="js\jquery-ui.custom.min.js" />
     <Content Include="js\jquery.min.js" />
-    <Content Include="js\layerHelper.js" />
+    <Content Include="js\layerHelper.app.js" />
     <Content Include="js\layerHelper.min.js" />
     <Content Include="js\linq.min.js" />
     <Content Include="js\plugins\beautifyhtml\beautifyhtml.js" />
@@ -411,6 +411,7 @@
     <Compile Include="Common\LayerHelper.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ProductOrderController.cs" />
+    <Compile Include="Controllers\ShareArticleController.cs" />
     <Compile Include="Controllers\SystemDicController.cs" />
     <Compile Include="Controllers\YinLiuTagManagerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -456,6 +457,8 @@
     <Content Include="Views\SystemDic\Edit.cshtml" />
     <Content Include="Views\ProductOrder\List.cshtml" />
     <Content Include="Views\ProductOrder\Edit.cshtml" />
+    <Content Include="Views\ShareArticle\List.cshtml" />
+    <Content Include="Views\ShareArticle\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

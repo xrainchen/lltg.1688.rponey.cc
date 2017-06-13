@@ -1,0 +1,60 @@
+﻿@using lltg._1688.rponey.cc.Model
+@using RPoney.Utilty.Extend
+@model lltg._1688.rponey.cc.Model.Entity.ShareArticleEntity
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" method="POST" action="@Url.Action("Save")" onsubmit="return DoAjaxPostSubmitForm(this)">
+                        @Html.HiddenFor(m => m.Id)
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">标题：</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.Title)
+                                <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 标题不能为空</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">类型：</label>
+                            <div class="col-sm-8">
+                                <select name="ArticleType">
+                                    @foreach (var articleType in EnumExtend.GetEnumRemarks<PublicEnum.ShareArticleTypeEnum>())
+                                    {
+                                        if ((int) Model.ArticleType == articleType.Key)
+                                        {
+                                            <option value="@articleType.Key" selected="selected">@articleType.Value</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@articleType.Key">@articleType.Value</option>
+                                        }
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"> 文章链接：</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.ArticleUrl)
+                                <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 文章链接地址不能为空</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">封面地址：</label>
+                            <div class="col-sm-8">
+                                @Html.TextBoxFor(m => m.Cover)
+                                <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> 请选择封面图片</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

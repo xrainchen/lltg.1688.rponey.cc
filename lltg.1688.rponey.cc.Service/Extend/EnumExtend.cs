@@ -10,7 +10,7 @@ namespace lltg._1688.rponey.cc.Service.Extend
         {
             return new ResultModel()
             {
-                Code =(int)(ResultCode.ResultCode)em,
+                Code =(int)(ResultCode)em,
                 Message = em.GetRemark()
             };
         }

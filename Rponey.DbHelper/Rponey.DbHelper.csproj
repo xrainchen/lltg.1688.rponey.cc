@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RPoney.Data">
-      <HintPath>..\..\..\..\Lib.Framework\RPoney.Data\RPoney.Data.dll</HintPath>
+      <HintPath>D:\Lib.Framework\RPoney.Data\RPoney.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

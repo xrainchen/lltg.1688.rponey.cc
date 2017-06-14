@@ -32,7 +32,7 @@
   <ItemGroup>
     <Reference Include="RPoney.Framework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
+      <HintPath>D:\Lib.Framework\Rponey.Framework\RPoney.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
